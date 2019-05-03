@@ -1,13 +1,17 @@
 import directoryScanner from './directoryScanner'
-import mdReader from './mdReader'
+import fileMapper from './fileMapper'
+import mdFileReader from './mdFileReader'
 
 const filer = async () => {
   const rootDir = process.cwd()
   const files = await directoryScanner()
-  console.info('\nStart read document')
-  let result = await Promise.all(files.map(path => mdReader(`${rootDir}/docs/${path}`)))
-  result = result.filter(item => item.document)
-  return result
+  const map = fileMapper(files)
+  let docs = await Promise.all(files.map(path => mdFileReader(`${rootDir}/docs/${path}`)))
+  docs = docs.filter(item => item.document)
+  return {
+    docs,
+    map,
+  }
 }
 
 export default filer

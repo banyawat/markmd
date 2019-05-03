@@ -1,6 +1,6 @@
 import smartFs from 'smart-fs'
 
-const mdReader = async (path) => {
+const mdFileReader = async (path) => {
   const parsedPage = await smartFs.smartRead(path)
   const document = parsedPage.join('\n')
   return {
@@ -9,4 +9,4 @@ const mdReader = async (path) => {
   }
 }
 
-export default mdReader
+export default mdFileReader
