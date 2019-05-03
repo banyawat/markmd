@@ -1,6 +1,6 @@
 {
   "name": "markmd",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Node.JS tools for translate markdown to beautiful API document",
   "main": "/build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
@@ -21,6 +21,7 @@
     "eslint-plugin-import": "^2.17.2"
   },
   "dependencies": {
+    "merge-deep": "^3.0.2",
     "showdown": "^1.9.0",
     "smart-fs": "^1.7.6"
   }

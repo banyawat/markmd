@@ -4,7 +4,6 @@ const directoryScanner = async () => {
   console.info('Scanning directory')
   const rootDir = process.cwd()
   const files = await smartFs.walkDir(`${rootDir}/docs`)
-  console.log(files)
   return files
 }
 
