@@ -6,7 +6,7 @@ const filer = async () => {
   const files = await directoryScanner()
   console.info('\nStart read document')
   let result = await Promise.all(files.map(path => mdReader(`${rootDir}/docs/${path}`)))
-  result = result.filter(item => item)
+  result = result.filter(item => item.document)
   return result
 }
 
