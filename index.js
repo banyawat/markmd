@@ -1,10 +1,10 @@
+import fs from 'fs'
 import filer from './src/libs/filer'
 import parser from './src/libs/parser'
 
 const run = async () => {
   console.info('Greedy')
   const documents = await filer()
-  console.info(documents)
 
   console.info('\nStart read doc\n')
   documents.forEach((doc) => {
