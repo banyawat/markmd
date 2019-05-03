@@ -6,11 +6,11 @@ const run = async () => {
   const documents = await filer()
   console.info(documents)
 
-  console.info('\nStart read doc\n');
-  documents.forEach(doc => {
-    console.log(`\n------------\n`);
+  console.info('\nStart read doc\n')
+  documents.forEach((doc) => {
+    console.log('\n------------\n')
     const result = parser(doc)
-    console.log(result);
+    console.log(result)
   })
 }
 
