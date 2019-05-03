@@ -11,5 +11,4 @@ const parser = (document) => {
   return result
 }
 
-
 export default parser
