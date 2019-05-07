@@ -1,22 +1,8 @@
-import fs from 'fs'
 import filer from './src/libs/filer'
 import mdFileReader from './src/libs/mdFileReader'
 import mdParser from './src/libs/mdParser'
 import pageMapTraverser from './src/libs/pageMapTraverser'
-
-const genFile = (filename, data) => {
-  const fileName = `${filename}.html`
-  const text = `<html>${data}</html>`
-  const dir = './apidoc'
-
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir)
-  }
-  fs.writeFile(`${dir}/${fileName}`, text, (err) => {
-    if (err) throw err
-    console.log('Saved!')
-  })
-}
+import genFile from './src/libs/genFile'
 
 const run = async () => {
   const rootDir = process.cwd()
@@ -33,6 +19,7 @@ const run = async () => {
     const result = mdParser(mdDocument)
     console.info(result)
     console.info('\n')
+    genFile(path, title, result)
   })
 }
 
