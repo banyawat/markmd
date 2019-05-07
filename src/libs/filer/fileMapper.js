@@ -10,7 +10,10 @@ const fileMapper = (paths) => {
         accumulator[item] = {}
       } else {
         accumulator._ = []
-        accumulator._.push(item)
+        accumulator._.push({
+          title: item,
+          path,
+        })
       }
       return accumulator[item]
     }, structure)

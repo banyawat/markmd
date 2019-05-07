@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "dev": "babel-node index.js",
+    "build": "babel index.js -d build",
     "prepublish": "babel index.js -d build"
   },
   "devDependencies": {
@@ -16,14 +17,15 @@
     "@babel/core": "7.4.4",
     "@babel/node": "7.2.2",
     "@babel/preset-env": "7.4.4",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2"
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.17.2"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
     "merge-deep": "^3.0.2",
     "showdown": "^1.9.0",
-    "smart-fs": "^1.7.6"
+    "smart-fs": "^1.7.6",
+    "merge-deep": "3.0.2"
   }
 }
