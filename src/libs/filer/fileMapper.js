@@ -1,6 +1,6 @@
 import merge from 'merge-deep'
 
-const fileMapper = (paths) => {
+const fileMapper = (paths, mainDirectory = 'docs') => {
   let result = {}
   paths.forEach((path) => {
     const pathItems = path.split('/') || []
@@ -12,7 +12,7 @@ const fileMapper = (paths) => {
         accumulator._ = []
         accumulator._.push({
           title: item.split('.').slice(0, -1).join('.'),
-          path: `/docs/${path}`,
+          path: `/${mainDirectory}/${path}`,
         })
       }
       return accumulator[item]

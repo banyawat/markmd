@@ -1,9 +1,9 @@
 import smartFs from 'smart-fs'
 
-const directoryScanner = async () => {
+const directoryScanner = async (mainDirectory = 'docs') => {
   console.info('Scanning directory')
   const rootDir = process.cwd()
-  const files = await smartFs.walkDir(`${rootDir}/docs`)
+  const files = await smartFs.walkDir(`${rootDir}/${mainDirectory}`)
   return files
 }
 

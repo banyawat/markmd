@@ -2,10 +2,10 @@ import directoryScanner from './directoryScanner'
 import fileMapper from './fileMapper'
 import getExtension from './getExtension'
 
-const filer = async () => {
-  let files = await directoryScanner()
+const filer = async (mainDirectory = 'docs') => {
+  let files = await directoryScanner(mainDirectory)
   files = files.filter(file => (getExtension(file) === 'md'))
-  const map = fileMapper(files)
+  const map = fileMapper(files, mainDirectory)
   return map
 }
 
