@@ -1,13 +1,15 @@
-import filer from './src/libs/filer'
+import pageMapTraverser from './src/libs/pageMapTraverser'
 import mdFileReader from './src/libs/mdFileReader'
 import mdParser from './src/libs/mdParser'
-import pageMapTraverser from './src/libs/pageMapTraverser'
 import genFile from './src/libs/genFile'
+import filer from './src/libs/filer'
+import loadSettings from './src/libs/loadSettings'
 
 const run = async () => {
   const rootDir = process.cwd()
+  const setting = await loadSettings()
   console.info('Greedy')
-  const pageList = await filer()
+  const pageList = await filer(setting.target)
   console.log(pageList)
   console.info('\nStart read doc\n')
   pageMapTraverser(pageList, async (title, path) => {
