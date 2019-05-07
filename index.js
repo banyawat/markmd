@@ -19,15 +19,6 @@ const run = async () => {
     console.info(result)
     console.info('\n')
   })
-
-  // pageList.docs.forEach((page) => {
-  //   console.info('\n------------------------------------------------------')
-  //   console.info(`<O> PATH = ${page.path}`)
-  //   console.info('------------------------------------------------------')
-  //   const result = mdParser(page.document)
-  //   console.info(result)
-  //   console.info('\n')
-  // })
 }
 
 run()
