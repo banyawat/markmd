@@ -11,8 +11,8 @@ const fileMapper = (paths) => {
       } else {
         accumulator._ = []
         accumulator._.push({
-          title: item,
-          path,
+          title: item.split('.').slice(0, -1).join('.'),
+          path: `/docs/${path}`,
         })
       }
       return accumulator[item]

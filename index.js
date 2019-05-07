@@ -1,6 +1,8 @@
 import fs from 'fs'
 import filer from './src/libs/filer'
-import parser from './src/libs/parser'
+import mdFileReader from './src/libs/mdFileReader'
+import mdParser from './src/libs/mdParser'
+import pageMapTraverser from './src/libs/pageMapTraverser'
 
 const genFile = (filename, data) => {
   const fileName = `${filename}.html`
@@ -17,19 +19,20 @@ const genFile = (filename, data) => {
 }
 
 const run = async () => {
+  const rootDir = process.cwd()
   console.info('Greedy')
   const pageList = await filer()
+  console.log(pageList)
   console.info('\nStart read doc\n')
-  let count = 0
-  pageList.docs.forEach((page) => {
-    // console.info('\n------------------------------------------------------')
-    // console.info(`<O> PATH = ${page.path}`)
-    // console.info('------------------------------------------------------')
-    const result = parser(page.document)
-    genFile(count, result)
-    // console.info(result)
+  pageMapTraverser(pageList, async (title, path) => {
+    console.log(title, path)
+    const mdDocument = await mdFileReader(`${rootDir}/${path}`)
+    console.info('\n------------------------------------------------------')
+    console.info(`<O> PATH = ${path}`)
+    console.info('------------------------------------------------------')
+    const result = mdParser(mdDocument)
+    console.info(result)
     console.info('\n')
-    count += 1
   })
 }
 
