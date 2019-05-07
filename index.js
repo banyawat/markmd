@@ -2,6 +2,7 @@ import filer from './src/libs/filer'
 import mdFileReader from './src/libs/mdFileReader'
 import mdParser from './src/libs/mdParser'
 import pageMapTraverser from './src/libs/pageMapTraverser'
+import genFile from './src/libs/genFile'
 
 const run = async () => {
   const rootDir = process.cwd()
@@ -18,6 +19,7 @@ const run = async () => {
     const result = mdParser(mdDocument)
     console.info(result)
     console.info('\n')
+    genFile(path, title, result)
   })
 }
 
