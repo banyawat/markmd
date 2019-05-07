@@ -12,9 +12,22 @@ const run = async () => {
   pageMapTraverser(pageList, async (title, path) => {
     console.log(title, path)
     const mdDocument = await mdFileReader(`${rootDir}/${path}`)
+    console.info('\n------------------------------------------------------')
+    console.info(`<O> PATH = ${path}`)
+    console.info('------------------------------------------------------')
     const result = mdParser(mdDocument)
-    console.log(result)
+    console.info(result)
+    console.info('\n')
   })
+
+  // pageList.docs.forEach((page) => {
+  //   console.info('\n------------------------------------------------------')
+  //   console.info(`<O> PATH = ${page.path}`)
+  //   console.info('------------------------------------------------------')
+  //   const result = mdParser(page.document)
+  //   console.info(result)
+  //   console.info('\n')
+  // })
 }
 
 run()
