@@ -8,6 +8,7 @@ const filer = async () => {
   let files = await directoryScanner()
   files = files.filter(file => (getExtension(file) === 'md'))
   const map = fileMapper(files)
+  console.log(JSON.stringify(map))
   let docs = await Promise.all(files.map(path => mdFileReader(`${rootDir}/docs/${path}`)))
   docs = docs.filter(item => item.document)
   return {

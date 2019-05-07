@@ -11,7 +11,7 @@ const fileMapper = (paths) => {
       } else {
         accumulator._ = []
         accumulator._.push({
-          title: item,
+          title: item.split('.').slice(0, -1).join('.'),
           path,
         })
       }
