@@ -1,10 +1,10 @@
 import pageMapTraverser from './src/libs/pageMapTraverser'
+import loadSettings from './src/libs/loadSettings'
+import validatePath from './src/libs/validatePath'
 import mdFileReader from './src/libs/mdFileReader'
 import mdParser from './src/libs/mdParser'
 import genFile from './src/libs/genFile'
 import filer from './src/libs/filer'
-import loadSettings from './src/libs/loadSettings'
-import validatePath from './src/libs/validatePath'
 
 const run = async () => {
   const rootDir = process.cwd()

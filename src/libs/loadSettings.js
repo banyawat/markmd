@@ -1,13 +1,12 @@
 import fs from 'fs'
-import { ERROR_MESSAGE } from '../constant'
+import { NAME } from '../constant'
 
 const settingCalibrator = async (settings) => {
   const { target } = settings
   const finalSettings = settings
   if (target) {
     if (!fs.existsSync(target)) {
-      console.warn(ERROR_MESSAGE.TARGET_FOLDER_NOT_EXIST)
-      finalSettings.target = 'docs'
+      finalSettings.target = NAME.DEFAULT_PATH
     }
   }
   return finalSettings
@@ -15,7 +14,7 @@ const settingCalibrator = async (settings) => {
 
 const loadSettings = async () => {
   const rootDir = process.cwd()
-  const raw = await fs.readFileSync(`${rootDir}/markmd.json`)
+  const raw = await fs.readFileSync(`${rootDir}/${NAME.DEFAULT_SETTING_FILE}`)
   const settings = JSON.parse(raw)
   return settingCalibrator(settings)
 }
