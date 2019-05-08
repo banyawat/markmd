@@ -26,28 +26,32 @@ npm install markmd --save
 ##### Example
 
 ```text
-README.md
-├── Alpha.md
-├── Bravo.md
-└── Charlie.md
+├─ README.md
+└─ /docs
+    ├─ Alpha.md
+    ├─ Bravo.md
+    └─ Charlie.md
+
 ```
 
 This will be compiled to HTML structure like this
 
 ```text
-README
-├── Alpha
-├── Bravo
-└── Charlie
+├─ index
+└─ /docs
+    ├─ Alpha
+    ├─ Bravo
+    └─ Charlie
 ```
 
 #### Settings
 
-Configuration is available by create `markmd.json`
+Make configuration by create `markmd.json`
 
 ```json
 {
-  "target": "custom-docs"
+  "target": "custom-docs",
+  "destination": "exported-docs"
 }
 ```
 
@@ -56,3 +60,4 @@ Options
 | option | description |
 |--------|-------------|
 | target | Different document folder name, by default is `docs` |
+| destination | Different exported folder name, by default is `apidoc` |
