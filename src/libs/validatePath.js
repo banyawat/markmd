@@ -6,7 +6,7 @@ const validatePath = (setting) => {
   if (fs.existsSync(`${rootDir}/${NAME.DEFAULT_SETTING_FILE}`)) {
     console.info('Found configuration.\n')
   }
-  if (!fs.existsSync(`${rootDir}/${setting.target}`)) {
+  if (setting.target && !fs.existsSync(`${rootDir}/${setting.target}`)) {
     console.error(ERROR_MESSAGE.TARGET_FOLDER_NOT_EXIST)
   } else if (!fs.existsSync(`${rootDir}/${NAME.DEFAULT_PATH}`)) {
     console.error(ERROR_MESSAGE.DEFAULT_FOLDER_NOT_EXIST)
