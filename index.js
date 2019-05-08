@@ -9,17 +9,18 @@ import genFile from './src/libs/genFile'
 
 const run = async () => {
   const rootDir = process.cwd()
-  const setting = await initialSettings()
-  const pageList = await filer(setting.source)
+  const settings = await initialSettings()
+  const pageList = await filer(settings.source)
   console.info('\nStart read doc\n')
-  indexer(pageList)
-  // await folderMaker(pageList)
+  const indexString = indexer(pageList, settings)
+  console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
+  await folderMaker(pageList)
 
-  // pageMapTraverser(pageList, async (title, path) => {
-  //   const mdDocument = await mdFileReader(`${rootDir}/${path}`)
-  //   const result = mdParser(mdDocument)
-  //   await genFile(path, title, result, setting)
-  // })
+  pageMapTraverser(pageList, async (title, path) => {
+    const mdDocument = await mdFileReader(`${rootDir}/${path}`)
+    const result = mdParser(mdDocument)
+    await genFile(path, title, result, settings)
+  })
 }
 
 run()
