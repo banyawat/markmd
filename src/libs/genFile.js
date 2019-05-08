@@ -12,7 +12,7 @@ const genFile = async (path, filename, data) => {
   }
   fs.writeFile(`.${dir}${fileName}`, text, (err) => {
     if (err) throw err
-    console.info(`${dir}${fileName}`)
+    console.info(`${dir}${fileName} Create Success!!!`)
   })
 }
 
