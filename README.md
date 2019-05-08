@@ -1,4 +1,4 @@
-# markmd
+# MarkMD
 
 Node.JS Structured document with markdown to HTML translator
 
@@ -10,9 +10,14 @@ Install markmd tools to your project
 npm install markmd --save
 ```
 
-### Index
+### Table of Contents
 
-[Folder Structure](#folder-structure)
+- [MarkMD](#markmd)
+  - [Usage](#usage)
+    - [Table of Contents](#table-of-contents)
+      - [Folder Structure](#folder-structure)
+        - [Example](#example)
+      - [Settings](#settings)
 
 #### Folder Structure
 
@@ -35,3 +40,19 @@ README
 ├── Bravo
 └── Charlie
 ```
+
+#### Settings
+
+Configuration is available by create `markmd.json`
+
+```json
+{
+  "target": "custom-docs"
+}
+```
+
+Options
+
+| option | description |
+|--------|-------------|
+| target | Different document folder name, by default is `docs` |
