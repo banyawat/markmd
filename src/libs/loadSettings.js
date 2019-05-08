@@ -1,11 +1,12 @@
 import fs from 'fs'
+import { ERROR_MESSAGE } from '../constant'
 
 const settingCalibrator = async (settings) => {
   const { target } = settings
   const finalSettings = settings
   if (target) {
     if (!fs.existsSync(target)) {
-      console.warn('Target folder does not exist, change to default path [./docs]')
+      console.warn(ERROR_MESSAGE.TARGET_FOLDER_NOT_EXIST)
       finalSettings.target = 'docs'
     }
   }

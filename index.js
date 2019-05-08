@@ -4,11 +4,14 @@ import mdParser from './src/libs/mdParser'
 import genFile from './src/libs/genFile'
 import filer from './src/libs/filer'
 import loadSettings from './src/libs/loadSettings'
+import validatePath from './src/libs/validatePath'
 
 const run = async () => {
   const rootDir = process.cwd()
   const setting = await loadSettings()
-  console.info('Greedy')
+  if (!validatePath(setting)) {
+    process.exit(0)
+  }
   const pageList = await filer(setting.target)
   console.log(pageList)
   console.info('\nStart read doc\n')
