@@ -1,6 +1,7 @@
 import merge from 'merge-deep'
+import { NAME } from '../../constant'
 
-const fileMapper = (paths, mainDirectory = 'docs') => {
+const fileMapper = (paths, mainDirectory = NAME.DEFAULT_PATH) => {
   let result = {}
   paths.forEach((path) => {
     const pathItems = path.split('/') || []
