@@ -3,7 +3,8 @@ const indexTraverser = node => Object.keys(node).map((key) => {
     return node._.map(item => `<li>${item.title}</li>`).join('')
   }
   return `<li>${key}<ul>${indexTraverser(node[key])}</ul></li>`
-}).map(item => `<ul>${item}</ul>`).join('')
+}).map(item => `<ul>${item}</ul>`)
+  .join('')
 
 
 const indexer = (fileMapping) => {

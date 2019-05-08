@@ -12,19 +12,19 @@ const run = async () => {
   const rootDir = process.cwd()
   const setting = await initialSettings()
   const pageList = await filer(setting.source)
-  console.log(pageList)
   console.info('\nStart read doc\n')
-  await folderMaker(pageList)
+  indexer(pageList)
+  // await folderMaker(pageList)
 
 
-  pageMapTraverser(pageList, async (title, path) => {
-    await genFoler(path, title, setting)
-  })
-  pageMapTraverser(pageList, async (title, path) => {
-    const mdDocument = await mdFileReader(`${rootDir}/${path}`)
-    const result = mdParser(mdDocument)
-    await genFile(path, title, result, setting)
-  })
+  // pageMapTraverser(pageList, async (title, path) => {
+  //   await genFoler(path, title, setting)
+  // })
+  // pageMapTraverser(pageList, async (title, path) => {
+  //   const mdDocument = await mdFileReader(`${rootDir}/${path}`)
+  //   const result = mdParser(mdDocument)
+  //   await genFile(path, title, result, setting)
+  // })
 }
 
 run()
