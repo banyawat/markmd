@@ -4,6 +4,7 @@ import mdFileReader from './src/libs/mdFileReader'
 import mdParser from './src/libs/mdParser'
 import genFile from './src/libs/genFile'
 import filer from './src/libs/filer'
+import folderMaker from './src/folderMaker'
 
 const run = async () => {
   const rootDir = process.cwd()
@@ -11,6 +12,8 @@ const run = async () => {
   const pageList = await filer(setting.source)
   console.log(pageList)
   console.info('\nStart read doc\n')
+  await folderMaker(pageList)
+
   pageMapTraverser(pageList, async (title, path) => {
     console.log(title, path)
     const mdDocument = await mdFileReader(`${rootDir}/${path}`)
