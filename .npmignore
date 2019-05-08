@@ -1,2 +1,5 @@
+/docs
+/docs-img
 /src
+.eslintrc.json
 index.js
