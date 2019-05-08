@@ -1,8 +1,9 @@
 import fs from 'fs'
 import mkdirp from 'mkdirp'
 import deepFlatten from './libs/deepFlatten'
+import { NAME } from './constant'
 
-const folderTraverse = (node, path = './apidoc') => Object.keys(node).map((key) => {
+const folderTraverse = (node, path = `./${NAME.DEFAULT_EXPORT_PATH}`) => Object.keys(node).map((key) => {
   if (key === '_') {
     return `${path}`
   }
