@@ -2,7 +2,7 @@ const rootDir = process.cwd()
 let sourcePath
 let destinationPath
 
-const pathReplace = (path) => {
+const replacePathAsHTML = (path) => {
   let newPath
   newPath = path.split('/')
   newPath[1] = `${destinationPath}/${sourcePath}`
@@ -15,7 +15,7 @@ const pathReplace = (path) => {
 
 const indexTraverser = node => Object.keys(node).map((key) => {
   if (key === '_') {
-    return node._.map(item => `<li><a href="${rootDir}${pathReplace(item.path)}">${item.title}</a></li>`).join('')
+    return node._.map(item => `<li><a href="${replacePathAsHTML(item.path)}">${item.title}</a></li>`).join('')
   }
   return `<li>${key}<ul>${indexTraverser(node[key])}</ul></li>`
 }).map(item => `<ul>${item}</ul>`)

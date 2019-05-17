@@ -19,6 +19,10 @@ const fillSettings = (settings) => {
     finalSettings.destination = NAME.DEFAULT_EXPORT_PATH
   }
 
+  if (!settings.image) {
+    finalSettings.image = NAME.DEFAULT_IMAGE_PATH
+  }
+
   validateSettings(finalSettings)
 
   return finalSettings

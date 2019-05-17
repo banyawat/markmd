@@ -6,11 +6,13 @@ import mdParser from './src/libs/mdParser'
 import filer from './src/libs/filer'
 import folderMaker from './src/folderMaker'
 import genFile from './src/libs/genFile'
+import copyImageFolder from './src/copyImageFolder'
 
 const run = async () => {
   const rootDir = process.cwd()
   const settings = await initialSettings()
   const pageList = await filer(settings.source)
+  console.log(pageList)
   console.info('\nStart read doc\n')
   const indexString = indexer(pageList, settings)
   console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
@@ -21,6 +23,8 @@ const run = async () => {
     const result = mdParser(mdDocument)
     await genFile(path, title, result, settings)
   })
+
+  await copyImageFolder(settings.image, settings.destination)
 }
 
 run()
