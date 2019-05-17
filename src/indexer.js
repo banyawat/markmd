@@ -1,15 +1,22 @@
-let sourcePath
-let destinationPath
+let activePath
 
 const replacePathAsHTML = (path) => {
-  let newPath
-  newPath = path.split('/')
-  newPath[1] = `${destinationPath}/${sourcePath}`
-  const splittedFileName = newPath[newPath.length - 1].split('.')
-  splittedFileName[splittedFileName.length - 1] = 'html'
-  newPath[newPath.length - 1] = splittedFileName.join('.')
-  newPath = newPath.join('/')
-  return newPath
+  const newPath = path.split('/')
+  const splittedCurrentPath = activePath.split('/')
+  newPath.shift()
+  splittedCurrentPath.shift()
+  splittedCurrentPath.pop()
+  if (splittedCurrentPath.join('') === newPath.join('')) {
+    return '#'
+  }
+  let fileName = newPath.pop().split('.')
+  fileName[fileName.length - 1] = 'html'
+  fileName = fileName.join('.')
+  let exportedPath = './'
+  for (let i = 0; i < splittedCurrentPath.length; i += 1) {
+    exportedPath += '../'
+  }
+  return `${exportedPath}${newPath.join('/')}/${fileName}`
 }
 
 const indexTraverser = node => Object.keys(node).map((key) => {
@@ -21,10 +28,9 @@ const indexTraverser = node => Object.keys(node).map((key) => {
   .join('')
 
 
-const indexer = (fileMapping, settings) => {
-  destinationPath = settings.destination
-  sourcePath = settings.source
+const indexer = (fileMapping, currentPath) => {
   console.log('========= Start indexing ==========')
+  activePath = currentPath
   const result = indexTraverser(fileMapping)
   return result
 }

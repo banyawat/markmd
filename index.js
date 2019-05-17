@@ -13,10 +13,11 @@ const run = async () => {
   const pageList = await filer(settings.source)
   console.log(pageList)
   console.info('\nStart read doc\n')
-  const indexString = indexer(pageList, settings)
-  console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
 
   pageMapTraverser(pageList, async (title, path) => {
+    console.log('Path', path)
+    const indexString = indexer(pageList, path)
+    // console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
     const mdDocument = await mdFileReader(`${rootDir}/${path}`)
     const dataInDoc = mdParser(mdDocument)
     const data = {

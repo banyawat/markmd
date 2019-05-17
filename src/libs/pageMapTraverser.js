@@ -1,4 +1,7 @@
-const traverse = (fileMap, callback) => Promise.all(Object.keys(fileMap).map(async (map) => {
+const traverse = (
+  fileMap,
+  callback,
+) => Promise.all(Object.keys(fileMap).map(async (map) => {
   if (map === '_') {
     fileMap[map].forEach((file) => {
       callback(file.title, file.path)
