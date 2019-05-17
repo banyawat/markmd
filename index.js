@@ -15,7 +15,7 @@ const run = async () => {
   console.log(pageList)
   console.info('\nStart read doc\n')
 
-  pageMapTraverser(pageList, async (title, path) => {
+  pageMapTraverser(pageList, async (title, path, deepLevel) => {
     console.log('Path', path)
     const indexString = indexer(pageList, path)
     // console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
@@ -27,7 +27,7 @@ const run = async () => {
       dataInDoc,
       indexString,
     }
-    await genFile(data, settings)
+    await genFile(data, settings, deepLevel)
   })
 
   await copyImageFolder(settings.image, settings.destination)

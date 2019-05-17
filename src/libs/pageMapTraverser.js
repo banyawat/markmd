@@ -1,7 +1,7 @@
 const traverse = (
   fileMap,
   callback,
-  deepLevel,
+  deepLevel = 0,
 ) => Promise.all(Object.keys(fileMap).map(async (map) => {
   if (map === '_') {
     fileMap[map].forEach((file) => {
