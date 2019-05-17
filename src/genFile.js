@@ -44,7 +44,7 @@ const genFile = async (data, settings) => {
   const { path } = data
   const text = htmlForm(data)
   let dir = path.replace('.md', '.html')
-  dir = dir.replace(settings.source, settings.destination)
+  dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
   smartFs.smartWrite(`.${dir}`, [text])
 }
 
