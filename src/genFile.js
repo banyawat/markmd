@@ -7,18 +7,30 @@ const htmlForm = (data, deepLevel) => {
   for (let i = 0; i < deepLevel + 1; i += 1) {
     pathToRoot += '../'
   }
-  return `<!DOCTYPE html>
+  return `
+  <!DOCTYPE html>
   <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="./${pathToRoot}styles/index.css">
-  </head>
-  <body>
-  <div class="grid-container">
-    <div class="menu">${indexString}</div>
-    <div class="page">${dataInDoc}</div>  
-  </div>
-  
-  </body>
+    <head>
+      <link rel="stylesheet" type="text/css" href="./${pathToRoot}styles/index.css">
+    </head>
+    <body>
+      <div class="grid-container">
+        <div class="menu">${indexString}</div>
+        <div class="page">
+          ${dataInDoc}
+        </div>
+      </div>
+      <footer class="footer">
+        <span>Powered By teusday and byties, Hosted on 
+          <a 
+            target="_blank" 
+            rel="noopener noreferrer"
+            href="https://github.com/banyawat/markmd">
+            Github
+            </a>
+        </span>
+      </footer>
+    </body>
   </html>`
 }
 

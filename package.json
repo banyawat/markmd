@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "babel-node index.js",
+    "convert": "babel-node index.js",
+    "dev": "nodemon --watch index.js --exec babel-node index.js",
     "build": "babel index.js -d build",
     "prepublish": "babel index.js -d build"
   },
@@ -26,6 +27,7 @@
     "@babel/preset-env": "7.4.4",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "2.17.2"
+    "eslint-plugin-import": "2.17.2",
+    "nodemon": "^1.19.0"
   }
 }

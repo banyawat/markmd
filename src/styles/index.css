@@ -56,3 +56,17 @@ body {
 ul{
   padding-left: 25px;
 }
+
+.footer {
+  margin-left: 250px;
+  justify-content: center;
+  background: #777;
+  color: white;
+  padding: 15px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #c4ed6d;
+}
