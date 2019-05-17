@@ -1,4 +1,3 @@
-const rootDir = process.cwd()
 let sourcePath
 let destinationPath
 
