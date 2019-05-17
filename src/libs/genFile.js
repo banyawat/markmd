@@ -1,14 +1,15 @@
-import fs from 'fs'
+// import fs from 'fs'
+import smartFs from 'smart-fs'
 
 const genFile = async (path, filename, data, settings) => {
   const fileName = `${filename}.html`
   const text = `<html>${data}</html>`
   let dir = path.replace(`${filename}.md`, '')
   dir = dir.replace(settings.source, settings.destination)
-  fs.writeFile(`.${dir}${fileName}`, text, (err) => {
-    if (err) throw err
-    console.info(`${dir}${fileName} Create Success!!!`)
-  })
+  // console.log(smartFs.smartWrite(`.${dir}${fileName}`))
+  // process.exit(0)
+  const newBuff = await Buffer.from(text)
+  smartFs.smartWrite(`.${dir}${fileName}`, newBuff)
 }
 
 export default genFile
