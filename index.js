@@ -18,8 +18,14 @@ const run = async () => {
 
   pageMapTraverser(pageList, async (title, path) => {
     const mdDocument = await mdFileReader(`${rootDir}/${path}`)
-    const result = mdParser(mdDocument)
-    await genFile(path, title, result, settings)
+    const dataInDoc = mdParser(mdDocument)
+    const data = {
+      path,
+      title,
+      dataInDoc,
+      indexString,
+    }
+    await genFile(data, settings)
   })
 
   await copyImageFolder(settings.image, settings.destination)
