@@ -3,7 +3,6 @@ import smartFs from 'smart-fs'
 
 const htmlForm = (data, deepLevel) => {
   const { title, dataInDoc, indexString } = data
-  console.log(deepLevel)
   let pathToRoot = ''
   for (let i = 0; i < deepLevel + 1; i += 1) {
     pathToRoot += '../'
@@ -32,9 +31,6 @@ const htmlForm = (data, deepLevel) => {
     <link rel="stylesheet" type="text/css" href="./${pathToRoot}styles/index.css">
   </head>
   <body>
-  
-  <h1>${title}</h1>
-    
   <div class="grid-container">
     <div class="item1">${title}</div>
     <div class="item2">${indexString}</div>
