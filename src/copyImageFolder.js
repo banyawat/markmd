@@ -1,13 +1,8 @@
-import smartFs from 'smart-fs'
+import fs from 'fs-extra'
 
 const copysourceFolder = async (sourceFolder, destinationFolder) => {
-  const images = await smartFs.walkDir(sourceFolder)
-  images.map(async (imagePath) => {
-    const image = await smartFs.smartRead(`./${sourceFolder}/${imagePath}`)
-    console.info('copying image to', `./${destinationFolder}/${sourceFolder}/${imagePath}`, '\n')
-    const writingResult = await smartFs.smartWrite(`./${destinationFolder}/${sourceFolder}/${imagePath}`, image)
-    return writingResult
-  })
+  await fs.copySync(sourceFolder, `./${destinationFolder}/${sourceFolder}`)
+  console.log('Image copied')
 }
 
 export default copysourceFolder
