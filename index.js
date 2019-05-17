@@ -6,6 +6,7 @@ import mdParser from './src/libs/mdParser'
 import filer from './src/libs/filer'
 import copyImageFolder from './src/copyImageFolder'
 import genFile from './src/genFile'
+import copyStyles from './src/copyStyles'
 
 const run = async () => {
   const rootDir = process.cwd()
@@ -30,6 +31,7 @@ const run = async () => {
   })
 
   await copyImageFolder(settings.image, settings.destination)
+  await copyStyles(settings.destination)
 }
 
 run()

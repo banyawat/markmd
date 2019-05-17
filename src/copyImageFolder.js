@@ -1,8 +1,8 @@
 import fs from 'fs-extra'
 
-const copysourceFolder = async (sourceFolder, destinationFolder) => {
+const copyImageFolder = async (sourceFolder, destinationFolder) => {
   await fs.copySync(sourceFolder, `./${destinationFolder}/${sourceFolder}`)
   console.log('Image copied')
 }
 
-export default copysourceFolder
+export default copyImageFolder
