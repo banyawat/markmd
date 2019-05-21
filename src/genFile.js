@@ -3,6 +3,7 @@ import smartFs from 'smart-fs'
 
 const htmlForm = (data, deepLevel) => {
   const { title, dataInDoc, indexString } = data
+  console.log('test')
   let pathToRoot = ''
   for (let i = 0; i < deepLevel + 1; i += 1) {
     pathToRoot += '../'
