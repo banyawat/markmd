@@ -33,6 +33,7 @@ const indexTraverser = node => Object.keys(node)
 
 const indexer = (fileMapping, currentPath) => {
   console.log('========= Start indexing ==========')
+  console.log('PATH: ', currentPath)
   activePath = currentPath
   const result = indexTraverser(fileMapping)
   return result
