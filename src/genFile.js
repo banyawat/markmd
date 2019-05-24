@@ -40,11 +40,17 @@ const htmlForm = (data) => {
 }
 
 
-const genFile = async (data, settings) => {
+const genFile = async (data, settings, isIndex = false) => {
   const { path } = data
   const text = htmlForm(data)
-  let dir = path.replace('.md', '.html')
-  dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
+  let dir
+  if (isIndex) {
+    dir = path.replace('README.md', 'index.html')
+    dir = dir.replace(settings.source, `${settings.destination}`)
+  } else {
+    dir = path.replace('.md', '.html')
+    dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
+  }
   smartFs.smartWrite(`.${dir}`, [text])
 }
 
