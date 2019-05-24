@@ -1,6 +1,8 @@
 /apidoc
 /docs
 /docs-img
-/src
+yarn.lock
+package-lock.json
 .eslintrc.json
-./index.js
+npm-debug.log
+.git
