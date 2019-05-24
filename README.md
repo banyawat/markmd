@@ -54,7 +54,8 @@ Make configuration by create `markmd.json`
 ```json
 {
   "target": "custom-docs",
-  "destination": "exported-docs"
+  "destination": "exported-docs",
+  "image": "custom-img"
 }
 ```
 
@@ -62,5 +63,6 @@ Options
 
 | option | description |
 |--------|-------------|
-| target | Different document folder name, by default is `docs` |
+| source | Different document folder name, by default is `docs` |
 | destination | Different exported folder name, by default is `apidoc` |
+| image | Different image folder name, by default is `docs-img` |

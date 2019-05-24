@@ -1,12 +1,19 @@
 import fs from 'fs'
 import { ERROR_MESSAGE, NAME } from './constant'
+import log from './utils/log'
 
 const rootDir = process.cwd()
 
-const validateSettings = (settings) => {
-  if (!fs.existsSync(`${rootDir}/${settings.source}`)) {
-    console.error(ERROR_MESSAGE.SOURCE_FOLDER_NOT_EXIST)
-    process.exit(0)
+const validateSettings = async (settings) => {
+  if (!(await fs.existsSync(`${rootDir}/${settings.source}`))) {
+    log.error(ERROR_MESSAGE.SOURCE_FOLDER_NOT_EXIST)
+    process.exit(new Error(ERROR_MESSAGE.SOURCE_FOLDER_NOT_EXIST))
+  }
+  if (await fs.existsSync(`${rootDir}/${settings.destination}`)) {
+    log.warn(ERROR_MESSAGE.DESTINATION_EXIST)
+  }
+  if (!(await fs.existsSync(`${rootDir}/${settings.image}`))) {
+    log.warn(ERROR_MESSAGE.IMAGE_FOLDER_NOT_EXIST)
   }
 }
 
@@ -31,7 +38,7 @@ const fillSettings = (settings) => {
 const loadSettings = async () => {
   let settings = {}
   if (fs.existsSync(`${rootDir}/${NAME.DEFAULT_SETTING_FILE}`)) {
-    console.info('Found configuration.\n')
+    log.info('Found configuration - markmd.json')
   }
   try {
     const raw = await fs.readFileSync(`${rootDir}/${NAME.DEFAULT_SETTING_FILE}`)
