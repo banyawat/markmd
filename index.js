@@ -8,8 +8,8 @@ import copyImageFolder from './src/copyImageFolder'
 import generateIndex from './src/generateIndex'
 import copyCSSFolder from './src/copyCSSFolder'
 import readMDFile from './src/readMDFile'
-import parseMD from './src/libs/parseMD'
 import { NAME } from './src/constant'
+import parseMD from './src/parseMD'
 import filer from './src/filer'
 
 const run = async () => {
