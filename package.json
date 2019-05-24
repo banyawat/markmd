@@ -1,6 +1,6 @@
 {
   "name": "markmd",
-  "version": "0.1.0-rc3",
+  "version": "0.1.0-rc7",
   "description": "Node.JS tools for translate markdown to beautiful API document",
   "main": "/build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
@@ -14,7 +14,8 @@
     "convert": "babel-node index.js",
     "dev": "nodemon --watch index.js --watch src --exec \"babel-node index\" -e js,css",
     "start": "node build/index.js",
-    "build": "babel index.js -d build; babel src -d build/src",
+    "build-css": "node-minify --compressor clean-css --input 'src/styles/index.css' --output 'build/src/styles/index.css'",
+    "build": "babel index.js -d build; babel src -d build/src; npm run build-css;",
     "prepublish": "babel index.js -d build"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "@babel/core": "7.4.4",
     "@babel/node": "7.2.2",
     "@babel/preset-env": "7.4.4",
+    "@node-minify/cli": "^4.1.0",
     "fs-extra": "8.0.1",
     "merge-deep": "3.0.2",
     "mkdirp": "0.5.1",
@@ -29,6 +31,7 @@
     "smart-fs": "1.7.6"
   },
   "devDependencies": {
+    "@node-minify/clean-css": "^4.0.5",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.17.2",
