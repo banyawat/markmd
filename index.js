@@ -8,17 +8,20 @@ import copyImageFolder from './src/copyImageFolder'
 import generateIndex from './src/generateIndex'
 import copyCSSFolder from './src/copyCSSFolder'
 import readMDFile from './src/readMDFile'
-import { NAME } from './src/constant'
 import parseMD from './src/parseMD'
+import log from './src/utils/log'
 import filer from './src/filer'
 
 const run = async () => {
+  log.title('\n<<  MarkMD  >>\n')
+
   const rootDir = process.cwd()
   const settings = await getInitialSettings()
   const pageList = await filer(settings.source)
   let mdDocument
   let data
-
+  console.info()
+  log.info('Start compiling...')
   pageMapTraverser(pageList, async (title, path, deepLevel) => {
     mdDocument = await readMDFile(`${rootDir}/${path}`)
     data = {
@@ -29,7 +32,7 @@ const run = async () => {
     }
     await generateHTMLFile(data, settings, deepLevel)
   })
-  const path = `/${NAME.DEFAULT_SOURCE_PATH}/README.md`
+  const path = `/${settings.source}/README.md`
   mdDocument = await readMDFile(`${rootDir}/README.md`)
   data = {
     path,
@@ -40,6 +43,7 @@ const run = async () => {
   await generateHTMLFile(data, settings, -1, true)
   await copyImageFolder(settings.image, settings.destination)
   await copyCSSFolder(settings.destination)
+  log.info(`Finished. See you at ${rootDir}/${settings.destination}/index.html \n`)
 }
 
 run()

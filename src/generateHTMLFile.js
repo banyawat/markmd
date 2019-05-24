@@ -1,4 +1,5 @@
 import smartFs from 'smart-fs'
+import log from './utils/log'
 
 
 const htmlForm = (data, deepLevel) => {
@@ -53,7 +54,7 @@ const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
     dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
   }
   await smartFs.smartWrite(`.${dir}`, [text])
-  console.info(`- ${path} has been compiled`)
+  log.compile(`${path} ==> ${dir}`)
 }
 
 export default generateHTMLFile
