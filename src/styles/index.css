@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title { grid-area: header; }
+
+.menu { 
+  background: #303030;
+  color: white;
+  grid-area: menu; 
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  padding-top: 15px;
+  -webkit-box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
+  -moz-box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
+  box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
+}
+
+.menu a {
+  width: 100%;
+  color: #c4ed6d;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: red;
+}
+
+.menu ul, li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.menu ul {
+  padding-left: 15px;
+}
+
+.page { 
+  grid-area: main; 
+  margin-left: 250px;
+  padding-left: 40px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+}
+
+ul{
+  padding-left: 25px;
+}

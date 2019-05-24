@@ -15,12 +15,16 @@ const run = async () => {
   const pageList = await filer(settings.source)
   console.log(pageList)
   console.info('\nStart read doc\n')
+
   let indexString
   let mdDocument
   let dataInDoc
   let data
-  pageMapTraverser(pageList, async (title, path) => {
+
+  pageMapTraverser(pageList, async (title, path, deepLevel) => {
+    console.log('Path', path)
     indexString = indexer(pageList, path)
+    // console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
     mdDocument = await mdFileReader(`${rootDir}/${path}`)
     dataInDoc = mdParser(mdDocument)
     data = {
@@ -29,7 +33,7 @@ const run = async () => {
       dataInDoc,
       indexString,
     }
-    await genFile(data, settings)
+    await genFile(data, settings, deepLevel)
   })
   mdDocument = await mdFileReader(`${rootDir}/README.md`)
   dataInDoc = mdParser(mdDocument)
@@ -39,7 +43,7 @@ const run = async () => {
     dataInDoc,
     indexString,
   }
-  await genFile(data, settings, true)
+  await genFile(data, settings, 0, true)
   await copyImageFolder(settings.image, settings.destination)
   await copyStyles(settings.destination)
 }
