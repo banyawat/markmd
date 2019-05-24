@@ -1,8 +1,8 @@
 {
   "name": "markmd",
-  "version": "0.2.0-rc0",
-  "description": "Node.js tools that compile markdown to beautiful HTML API document",
-  "main": "/build/index.js",
+  "version": "0.2.0-rc1",
+  "description": "Node.js CLI that compile markdown to beautiful HTML API document",
+  "main": "build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
   "author": "THiNKNET CNX",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "start": "node build/index.js",
     "bulid-js": "babel index.js -d build; babel src -d build/src;",
     "build-css": "node-minify --compressor clean-css --input 'src/styles/index.css' --output 'build/src/styles/index.css'",
-    "build": "npm run bulid-js; npm run build-css;",
+    "build": "npm run bulid-js && npm run build-css",
     "prepublish": "npm run build"
   },
   "dependencies": {
