@@ -13,7 +13,7 @@ import filer from './src/filer'
 import log from './src/utils/log'
 
 const run = async () => {
-  log.title('\n\n<<  MarkMD  >>\n')
+  log.title('\n<<  MarkMD  >>\n')
 
   const rootDir = process.cwd()
   const settings = await getInitialSettings()
