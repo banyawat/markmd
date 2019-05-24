@@ -1,7 +1,7 @@
 {
   "name": "markmd",
-  "version": "0.1.0-rc7",
-  "description": "Node.JS tools for translate markdown to beautiful API document",
+  "version": "0.1.0-rc8",
+  "description": "Node.js tools that compile markdown to beautiful HTML API document",
   "main": "/build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
   "author": "THiNKNET CNX",
