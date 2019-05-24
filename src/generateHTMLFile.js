@@ -13,30 +13,37 @@ const htmlForm = (data, deepLevel) => {
   <!DOCTYPE html>
   <html>
     <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="./${documentRoot}styles/index.css">
     </head>
     <body>
       <div class="grid-container">
         <div class="menu">
-          <a href="./${documentRoot}index.html">
-            Home
-          </a>
-          ${indexNode}
+            <span></span>
+            <span></span>
+            <span></span>
+            <input type="checkbox" />
+          <div class="menu-content">
+            <a href="./${documentRoot}index.html">
+              Home
+            </a>
+            ${indexNode}
+          </div>
         </div>
         <div class="page">
           ${body}
         </div>
+        <div class="footer">
+          <span>Powered By teusday and byteties, Hosted on 
+            <a 
+              target="_blank" 
+              rel="noopener noreferrer"
+              href="https://github.com/banyawat/markmd">
+              Github
+              </a>
+          </span>
+        </div>
       </div>
-      <footer class="footer">
-        <span>Powered By teusday and byteties, Hosted on 
-          <a 
-            target="_blank" 
-            rel="noopener noreferrer"
-            href="https://github.com/banyawat/markmd">
-            Github
-            </a>
-        </span>
-      </footer>
     </body>
   </html>`
 }
