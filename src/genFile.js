@@ -35,12 +35,17 @@ const htmlForm = (data, deepLevel) => {
   </html>`
 }
 
-
-const genFile = async (data, settings, deepLevel) => {
+const genFile = async (data, settings, deepLevel, isIndex = false) => {
   const { path } = data
   const text = htmlForm(data, deepLevel)
-  let dir = path.replace('.md', '.html')
-  dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
+  let dir
+  if (isIndex) {
+    dir = path.replace('README.md', 'index.html')
+    dir = dir.replace(settings.source, `${settings.destination}`)
+  } else {
+    dir = path.replace('.md', '.html')
+    dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
+  }
   await smartFs.smartWrite(`.${dir}`, [text])
 }
 
