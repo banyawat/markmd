@@ -1,22 +1,27 @@
 let activePath
 
 const replacePathAsHTML = (path) => {
+  console.log('determining path -', path)
   const newPath = path.split('/')
   const splittedCurrentPath = activePath.split('/')
   newPath.shift()
   splittedCurrentPath.shift()
-  splittedCurrentPath.pop()
   if (splittedCurrentPath.join('') === newPath.join('')) {
+    console.log('#')
     return '#'
   }
-  let fileName = newPath.pop().split('.')
-  fileName[fileName.length - 1] = 'html'
-  fileName = fileName.join('.')
+  let newFileName = newPath.pop().split('.')
+  newFileName[newFileName.length - 1] = 'html'
+  newFileName = newFileName.join('.')
+  console.log('new path', newPath)
+  console.log('active path', splittedCurrentPath)
   let exportedPath = './'
-  for (let i = 0; i < splittedCurrentPath.length; i += 1) {
+  for (let i = 0; i < splittedCurrentPath.length - 1; i += 1) {
     exportedPath += '../'
   }
-  return `${exportedPath}${newPath.join('/')}/${fileName}`
+
+  console.log(`${exportedPath}${newPath.join('/')}/${newFileName}`)
+  return `${exportedPath}${newPath.join('/')}/${newFileName}`
 }
 
 const indexTraverser = node => Object.keys(node)

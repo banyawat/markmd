@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import '@babel/polyfill'
+import '@babel/polyfill' // eslint-disable-line
 import pageMapTraverser from './src/libs/pageMapTraverser'
 import initialSettings from './src/libs/initialSettings'
 import mdFileReader from './src/libs/mdFileReader'
@@ -19,34 +19,30 @@ const run = async () => {
   console.log(pageList)
   console.info('\nStart read doc\n')
 
-  let indexString
   let mdDocument
   let dataInDoc
   let data
 
   pageMapTraverser(pageList, async (title, path, deepLevel) => {
     console.log('Path', path)
-    indexString = indexer(pageList, path)
-    // console.log('PUT INDEX IN HTML TO SEE! ->\n', indexString, '\n')
     mdDocument = await mdFileReader(`${rootDir}/${path}`)
     dataInDoc = mdParser(mdDocument)
     data = {
       path,
       title,
       dataInDoc,
-      indexString,
+      indexString: indexer(pageList, path),
     }
     await genFile(data, settings, deepLevel)
   })
   const path = `/${NAME.DEFAULT_SOURCE_PATH}/README.md`
-  indexString = indexer(pageList, '')
   mdDocument = await mdFileReader(`${rootDir}/README.md`)
   dataInDoc = mdParser(mdDocument)
   data = {
     path,
     title: process.env.npm_package_name,
     dataInDoc,
-    indexString,
+    indexString: indexer(pageList, ''),
   }
   await genFile(data, settings, -1, true)
   await copyImageFolder(settings.image, settings.destination)
