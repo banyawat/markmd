@@ -27,7 +27,10 @@ const indexTraverser = node => Object.keys(node)
       return node._.sort((a, b) => a.path.length > b.path.length).map(item => `<li><a href="${replacePathAsHTML(item.path)}">${item.title}</a></li>`).join('')
     }
     return `<li>${key}<ul>${indexTraverser(node[key])}</ul></li>`
-  }).map(item => `<ul>${item}</ul>`)
+  }).map(item => `
+  <ul>
+    ${item}
+  </ul>`)
   .join('')
 
 
@@ -36,7 +39,7 @@ const indexer = (fileMapping, currentPath) => {
   console.log('PATH: ', currentPath)
   activePath = currentPath
   const result = indexTraverser(fileMapping)
-  return result
+  return `${result}`
 }
 
 export default indexer

@@ -17,7 +17,12 @@ const htmlForm = (data, deepLevel) => {
     </head>
     <body>
       <div class="grid-container">
-        <div class="menu">${indexString}</div>
+        <div class="menu">
+          <a href="./${pathToRoot}index.html">
+            Home
+          </a>
+          ${indexString}
+        </div>
         <div class="page">
           ${dataInDoc}
         </div>
