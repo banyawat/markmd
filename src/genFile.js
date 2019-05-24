@@ -4,8 +4,10 @@ import smartFs from 'smart-fs'
 const htmlForm = (data, deepLevel) => {
   const { title, dataInDoc, indexString } = data
   let pathToRoot = ''
-  for (let i = 0; i < deepLevel + 1; i += 1) {
-    pathToRoot += '../'
+  if (deepLevel !== -1) {
+    for (let i = 0; i < deepLevel + 1; i += 1) {
+      pathToRoot += '../'
+    }
   }
   return `
   <!DOCTYPE html>
@@ -21,7 +23,7 @@ const htmlForm = (data, deepLevel) => {
         </div>
       </div>
       <footer class="footer">
-        <span>Powered By teusday and byties, Hosted on 
+        <span>Powered By teusday and byteties, Hosted on 
           <a 
             target="_blank" 
             rel="noopener noreferrer"

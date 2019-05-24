@@ -48,7 +48,7 @@ const run = async () => {
     dataInDoc,
     indexString,
   }
-  await genFile(data, settings, 0, true)
+  await genFile(data, settings, -1, true)
   await copyImageFolder(settings.image, settings.destination)
   await copyStyles(settings.destination)
 }
