@@ -2,29 +2,29 @@ import smartFs from 'smart-fs'
 
 
 const htmlForm = (data, deepLevel) => {
-  const { title, dataInDoc, indexString } = data
-  let pathToRoot = ''
+  const { title, body, indexNode } = data
+  let documentRoot = ''
   if (deepLevel !== -1) {
     for (let i = 0; i < deepLevel + 1; i += 1) {
-      pathToRoot += '../'
+      documentRoot += '../'
     }
   }
   return `
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="stylesheet" type="text/css" href="./${pathToRoot}styles/index.css">
+      <link rel="stylesheet" type="text/css" href="./${documentRoot}styles/index.css">
     </head>
     <body>
       <div class="grid-container">
         <div class="menu">
-          <a href="./${pathToRoot}index.html">
+          <a href="./${documentRoot}index.html">
             Home
           </a>
-          ${indexString}
+          ${indexNode}
         </div>
         <div class="page">
-          ${dataInDoc}
+          ${body}
         </div>
       </div>
       <footer class="footer">

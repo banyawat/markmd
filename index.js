@@ -20,28 +20,28 @@ const run = async () => {
   console.info('\nStart read doc\n')
 
   let mdDocument
-  let dataInDoc
+  let body
   let data
 
   pageMapTraverser(pageList, async (title, path, deepLevel) => {
     mdDocument = await mdFileReader(`${rootDir}/${path}`)
-    dataInDoc = mdParser(mdDocument)
+    body = mdParser(mdDocument)
     data = {
       path,
       title,
-      dataInDoc,
-      indexString: indexer(pageList, path),
+      body,
+      indexNode: indexer(pageList, path),
     }
     await genFile(data, settings, deepLevel)
   })
   const path = `/${NAME.DEFAULT_SOURCE_PATH}/README.md`
   mdDocument = await mdFileReader(`${rootDir}/README.md`)
-  dataInDoc = mdParser(mdDocument)
+  body = mdParser(mdDocument)
   data = {
     path,
     title: process.env.npm_package_name,
-    dataInDoc,
-    indexString: indexer(pageList, ''),
+    body,
+    indexNode: indexer(pageList, ''),
   }
   await genFile(data, settings, -1, true)
   await copyImageFolder(settings.image, settings.destination)
