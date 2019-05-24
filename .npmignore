@@ -2,4 +2,4 @@
 /docs-img
 /src
 .eslintrc.json
-index.js
+./index.js

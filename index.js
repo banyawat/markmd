@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+import '@babel/polyfill'
 import pageMapTraverser from './src/libs/pageMapTraverser'
 import initialSettings from './src/libs/initialSettings'
 import mdFileReader from './src/libs/mdFileReader'
