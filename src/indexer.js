@@ -1,20 +1,16 @@
 let activePath
 
 const replacePathAsHTML = (path) => {
-  console.log('determining path -', path)
   const newPath = path.split('/')
   const splittedCurrentPath = activePath.split('/')
   newPath.shift()
   splittedCurrentPath.shift()
   if (splittedCurrentPath.join('') === newPath.join('')) {
-    console.log('#')
     return '#'
   }
   let newFileName = newPath.pop().split('.')
   newFileName[newFileName.length - 1] = 'html'
   newFileName = newFileName.join('.')
-  console.log('new path', newPath)
-  console.log('active path', splittedCurrentPath)
   let exportedPath = './'
   for (let i = 0; i < splittedCurrentPath.length - 1; i += 1) {
     exportedPath += '../'

@@ -24,7 +24,6 @@ const run = async () => {
   let data
 
   pageMapTraverser(pageList, async (title, path, deepLevel) => {
-    console.log('Path', path)
     mdDocument = await mdFileReader(`${rootDir}/${path}`)
     dataInDoc = mdParser(mdDocument)
     data = {
