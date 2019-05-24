@@ -38,10 +38,13 @@ const run = async () => {
     }
     await genFile(data, settings, deepLevel)
   })
+  const path = `/${NAME.DEFAULT_SOURCE_PATH}/README.md`
+  indexString = indexer(pageList, '')
+  console.log(indexString)
   mdDocument = await mdFileReader(`${rootDir}/README.md`)
   dataInDoc = mdParser(mdDocument)
   data = {
-    path: `/${NAME.DEFAULT_SOURCE_PATH}/README.md`,
+    path,
     title: process.env.npm_package_name,
     dataInDoc,
     indexString,
