@@ -9,8 +9,8 @@ import generateIndex from './src/generateIndex'
 import copyCSSFolder from './src/copyCSSFolder'
 import readMDFile from './src/readMDFile'
 import parseMD from './src/parseMD'
-import filer from './src/filer'
 import log from './src/utils/log'
+import filer from './src/filer'
 
 const run = async () => {
   log.title('\n<<  MarkMD  >>\n')
