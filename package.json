@@ -16,7 +16,7 @@
     "start": "node build/index.js",
     "build-css": "node-minify --compressor clean-css --input 'src/styles/index.css' --output 'build/src/styles/index.css'",
     "build": "babel index.js -d build; babel src -d build/src; npm run build-css;",
-    "prepublish": "babel index.js -d build"
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@babel/cli": "7.4.4",
