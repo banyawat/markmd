@@ -1,5 +1,8 @@
 # MarkMD
 
+![npm version](https://badge.fury.io/js/markmd.svg)
+![NPM](https://img.shields.io/npm/l/markmd.svg)
+
 Node.JS Structured document with markdown to HTML translator
 
 ## Usage
