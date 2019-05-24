@@ -53,6 +53,7 @@ const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
     dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
   }
   await smartFs.smartWrite(`.${dir}`, [text])
+  console.info(`- ${path} has been compiled`)
 }
 
 export default generateHTMLFile

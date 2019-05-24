@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
 import '@babel/polyfill' // eslint-disable-line
-import pageMapTraverser from './src/libs/pageMapTraverser'
-import initialSettings from './src/libs/initialSettings'
-import readMDFile from './src/libs/readMDFile'
-import indexer from './src/indexer'
-import parseMD from './src/libs/parseMD'
-import filer from './src/filer'
-import copyImageFolder from './src/copyImageFolder'
+import getInitialSettings from './src/getInitialSettings'
+import pageMapTraverser from './src/pageMapTraverser'
 import generateHTMLFile from './src/generateHTMLFile'
+import copyImageFolder from './src/copyImageFolder'
+import generateIndex from './src/generateIndex'
 import copyCSSFolder from './src/copyCSSFolder'
+import readMDFile from './src/readMDFile'
+import parseMD from './src/libs/parseMD'
 import { NAME } from './src/constant'
+import filer from './src/filer'
 
 const run = async () => {
   const rootDir = process.cwd()
-  const settings = await initialSettings()
+  const settings = await getInitialSettings()
   const pageList = await filer(settings.source)
   let mdDocument
   let data
@@ -25,7 +25,7 @@ const run = async () => {
       path,
       title,
       body: parseMD(mdDocument),
-      indexNode: indexer(pageList, path),
+      indexNode: generateIndex(pageList, path),
     }
     await generateHTMLFile(data, settings, deepLevel)
   })
@@ -35,7 +35,7 @@ const run = async () => {
     path,
     title: process.env.npm_package_name,
     body: parseMD(mdDocument),
-    indexNode: indexer(pageList, ''),
+    indexNode: generateIndex(pageList, ''),
   }
   await generateHTMLFile(data, settings, -1, true)
   await copyImageFolder(settings.image, settings.destination)

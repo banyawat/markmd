@@ -15,8 +15,6 @@ const replacePathAsHTML = (path) => {
   for (let i = 0; i < splittedCurrentPath.length - 1; i += 1) {
     exportedPath += '../'
   }
-
-  console.log(`${exportedPath}${newPath.join('/')}/${newFileName}`)
   return `${exportedPath}${newPath.join('/')}/${newFileName}`
 }
 
@@ -35,8 +33,6 @@ const indexTraverser = node => Object.keys(node)
 
 
 const indexer = (fileMapping, currentPath) => {
-  console.log('========= Start indexing ==========')
-  console.log('PATH: ', currentPath)
   activePath = currentPath
   const result = indexTraverser(fileMapping)
   return `${result}`

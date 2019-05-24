@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { ERROR_MESSAGE, NAME } from '../constant'
+import { ERROR_MESSAGE, NAME } from './constant'
 
 const rootDir = process.cwd()
 

@@ -1,6 +1,6 @@
 import directoryScanner from './directoryScanner'
-import fileMapper from './fileMapper'
 import getFileExtension from './getFileExtension'
+import fileMapper from './fileMapper'
 
 const filer = async (mainDirectory) => {
   let files = await directoryScanner(mainDirectory)
