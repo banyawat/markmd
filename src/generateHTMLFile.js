@@ -23,7 +23,6 @@ const htmlForm = (data, deepLevel) => {
             <span></span>
             <span></span>
             <span></span>
-            <input type="checkbox" />
           <div class="menu-content">
             <a href="./${documentRoot}index.html">
               Home
