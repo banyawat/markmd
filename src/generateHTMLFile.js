@@ -41,7 +41,7 @@ const htmlForm = (data, deepLevel) => {
   </html>`
 }
 
-const genFile = async (data, settings, deepLevel, isIndex = false) => {
+const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
   const { path } = data
   const text = htmlForm(data, deepLevel)
   let dir
@@ -55,4 +55,4 @@ const genFile = async (data, settings, deepLevel, isIndex = false) => {
   await smartFs.smartWrite(`.${dir}`, [text])
 }
 
-export default genFile
+export default generateHTMLFile

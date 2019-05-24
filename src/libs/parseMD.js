@@ -6,9 +6,9 @@ const converter = new Showdown.Converter({
   emoji: true,
 })
 
-const mdParser = (document) => {
+const parseMD = (document) => {
   const result = converter.makeHtml(document)
   return result
 }
 
-export default mdParser
+export default parseMD

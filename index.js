@@ -3,13 +3,13 @@
 import '@babel/polyfill' // eslint-disable-line
 import pageMapTraverser from './src/libs/pageMapTraverser'
 import initialSettings from './src/libs/initialSettings'
-import mdFileReader from './src/libs/mdFileReader'
+import readMDFile from './src/libs/readMDFile'
 import indexer from './src/indexer'
-import mdParser from './src/libs/mdParser'
-import filer from './src/libs/filer'
+import parseMD from './src/libs/parseMD'
+import filer from './src/filer'
 import copyImageFolder from './src/copyImageFolder'
-import genFile from './src/genFile'
-import copyStyles from './src/copyStyles'
+import generateHTMLFile from './src/generateHTMLFile'
+import copyCSSFolder from './src/copyCSSFolder'
 import { NAME } from './src/constant'
 
 const run = async () => {
@@ -20,26 +20,26 @@ const run = async () => {
   let data
 
   pageMapTraverser(pageList, async (title, path, deepLevel) => {
-    mdDocument = await mdFileReader(`${rootDir}/${path}`)
+    mdDocument = await readMDFile(`${rootDir}/${path}`)
     data = {
       path,
       title,
-      body: mdParser(mdDocument),
+      body: parseMD(mdDocument),
       indexNode: indexer(pageList, path),
     }
-    await genFile(data, settings, deepLevel)
+    await generateHTMLFile(data, settings, deepLevel)
   })
   const path = `/${NAME.DEFAULT_SOURCE_PATH}/README.md`
-  mdDocument = await mdFileReader(`${rootDir}/README.md`)
+  mdDocument = await readMDFile(`${rootDir}/README.md`)
   data = {
     path,
     title: process.env.npm_package_name,
-    body: mdParser(mdDocument),
+    body: parseMD(mdDocument),
     indexNode: indexer(pageList, ''),
   }
-  await genFile(data, settings, -1, true)
+  await generateHTMLFile(data, settings, -1, true)
   await copyImageFolder(settings.image, settings.destination)
-  await copyStyles(settings.destination)
+  await copyCSSFolder(settings.destination)
 }
 
 run()
