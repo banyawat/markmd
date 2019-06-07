@@ -12,9 +12,6 @@ const validateSettings = async (settings) => {
   if (await fs.existsSync(`${rootDir}/${settings.destination}`)) {
     log.warn(ERROR_MESSAGE.DESTINATION_EXIST)
   }
-  if (!(await fs.existsSync(`${rootDir}/${settings.image}`))) {
-    log.warn(ERROR_MESSAGE.IMAGE_FOLDER_NOT_EXIST)
-  }
 }
 
 const fillSettings = (settings) => {

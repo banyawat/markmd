@@ -4,8 +4,12 @@ import { ERROR_MESSAGE } from './constant'
 
 const copyImageFolder = async (sourceFolder, destinationFolder) => {
   try {
-    await fs.copySync(sourceFolder, `./${destinationFolder}/${sourceFolder}`)
-    log.compile(sourceFolder)
+    if (await fs.existsSync(sourceFolder)) {
+      await fs.copySync(sourceFolder, `./${destinationFolder}/${sourceFolder}`)
+      log.compile('Copying images...')
+    } else {
+      log.warn(ERROR_MESSAGE.IMAGE_FOLDER_NOT_EXIST)
+    }
   } catch (error) {
     log.warn(ERROR_MESSAGE.COULD_NOT_COPY_IMAGE)
   }

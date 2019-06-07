@@ -41,8 +41,9 @@ const run = async () => {
     indexNode: generateIndex(pageList, ''),
   }
   await generateHTMLFile(data, settings, -1, true)
-  await copyImageFolder(settings.image, settings.destination)
   await copyCSSFolder(settings.destination)
+  await copyImageFolder(settings.image, settings.destination)
+  console.log('\n')
   log.info(`Finished. See you at ${rootDir}/${settings.destination}/index.html \n`)
 }
 

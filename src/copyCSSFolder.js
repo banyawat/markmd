@@ -7,7 +7,7 @@ const copyCSSFolder = async (destinationFolder) => {
   const dir = __dirname
   try {
     await fs.copySync(`${dir}/${PATH.STYLES}`, `${rootDir}/${destinationFolder}/${PATH.STYLES}`)
-    log.compile('Generating Themes')
+    log.compile('Generating Themes...')
   } catch (error) {
     log.error(ERROR_MESSAGE.CSS_COPY_ERROR)
   }
