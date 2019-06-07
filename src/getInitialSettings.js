@@ -14,7 +14,7 @@ const validateSettings = async (settings) => {
   }
 }
 
-const fillSettings = (settings) => {
+const fillSettings = async (settings) => {
   const finalSettings = { ...settings }
   if (!settings.source) {
     finalSettings.source = NAME.DEFAULT_SOURCE_PATH
@@ -27,7 +27,7 @@ const fillSettings = (settings) => {
     finalSettings.image = NAME.DEFAULT_IMAGE_PATH
   }
 
-  validateSettings(finalSettings)
+  await validateSettings(finalSettings)
 
   return finalSettings
 }
