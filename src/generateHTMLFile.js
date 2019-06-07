@@ -2,7 +2,6 @@ import smartFs from 'smart-fs'
 import log from './utils/log'
 import getDocumentRoot from './utils/getDocumentRoot'
 
-
 const htmlForm = (data, deepLevel) => {
   const { title, body, indexNode } = data
   const documentRoot = getDocumentRoot(deepLevel)
@@ -16,7 +15,23 @@ const htmlForm = (data, deepLevel) => {
     </head>
     <body>
       <div class="container">
-        <div class="menu">
+        <button 
+          id="mobile-menu"
+          class="mobile-menu"
+        >
+          Menu
+        </button>
+        <script>
+          document.getElementById('mobile-menu').onclick = function() {
+            var isActive = document.getElementById('menu').className.split(' ').includes('active')
+            if(!isActive) {
+              document.getElementById('menu').className = 'menu active'
+            } else {
+              document.getElementById('menu').className  = 'menu'
+            }
+          }
+        </script>
+        <div id="menu" class="menu">
           <div class="menu-content">
             ${indexNode}
           </div>

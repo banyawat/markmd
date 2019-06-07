@@ -88,17 +88,42 @@ blockquote {
   padding: 1em 40px 1em 40px;
 }
 
+.mobile-menu {
+  display: none;
+  position: fixed;
+  border-radius: 0 5px 5px 0;
+  top: 20px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background: #303030;
+  box-shadow: 2px 2px 5px rgba(0.7, 0.7, 0.7, 0.2);
+}
+
 @media only screen and (max-width: 768px) {
   img {
     max-width: 100%;
   }
 
+  .mobile-menu {
+    display: unset;
+  }
+
   .menu {
     display: none;
-    /* position: fixed;
-    width: 100vw;
-    height: 100vh; */
     flex: 0;
+  }
+
+  .menu.active {
+    display: unset;
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px; /* Negative half of height. */
+    margin-left: -150px; /* Negative half of width. */
   }
 
   .page {
