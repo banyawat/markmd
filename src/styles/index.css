@@ -29,7 +29,7 @@ body {
 }
 
 .menu a:hover {
-  color: red;
+  color: #dde4cf;
 }
 
 .menu ul, li {
@@ -37,8 +37,18 @@ body {
   margin-bottom: 10px;
 }
 
+.menu li.active {
+  padding: 5px;
+  border-radius: 5px;
+  background: gray;
+}
+
 .menu ul {
   padding-left: 15px;
+}
+
+.menu li {
+  padding-right: 10px 10px 10px 0;
 }
 
 .page {
@@ -99,4 +109,29 @@ body {
                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                opacity 0.55s ease;
  }
+}
+
+
+table {
+
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+pre {
+  padding: 15px;
+  border-radius: 5px;
+  background: #303030;
+  color: white;
+}
+
+blockquote {
+  background: #f5f5f5;
+  margin: 0;
+  padding: 1em 40px 1em 40px;
 }

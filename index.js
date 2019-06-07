@@ -38,12 +38,12 @@ const run = async () => {
     path,
     title: process.env.npm_package_name,
     body: parseMD(mdDocument),
-    indexNode: generateIndex(pageList, ''),
+    indexNode: generateIndex(pageList, '/'),
   }
   await generateHTMLFile(data, settings, -1, true)
   await copyCSSFolder(settings.destination)
   await copyImageFolder(settings.image, settings.destination)
-  console.log('\n')
+  console.info('\n')
   log.info(`Finished. See you at ${rootDir}/${settings.destination}/index.html \n`)
 }
 

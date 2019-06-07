@@ -22,7 +22,13 @@ const indexTraverser = node => Object.keys(node)
   .sort(a => (typeof node[a] === 'object'))
   .map((key) => {
     if (key === '_') {
-      return node._.sort((a, b) => a.path.length > b.path.length).map(item => `<li><a href="${replacePathAsHTML(item.path)}">${item.title}</a></li>`).join('')
+      return node._
+        .sort((a, b) => a.path.length > b.path.length)
+        .map((item) => {
+          const path = replacePathAsHTML(item.path)
+          return `<li ${(path === '#') ? 'class="active"' : ''}><a href="${path}">${item.title}</a></li>`
+        })
+        .join('')
     }
     return `<li>${key}<ul>${indexTraverser(node[key])}</ul></li>`
   }).map(item => `

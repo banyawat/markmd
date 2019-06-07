@@ -14,6 +14,7 @@ const htmlForm = (data, deepLevel) => {
   <!DOCTYPE html>
   <html>
     <head>
+      <title>${title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="./${documentRoot}styles/index.css">
     </head>
