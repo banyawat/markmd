@@ -1,3 +1,5 @@
+import getDocumentRoot from './utils/getDocumentRoot'
+
 let activePath
 
 const replacePathAsHTML = (path) => {
@@ -38,10 +40,15 @@ const indexTraverser = node => Object.keys(node)
   .join('')
 
 
-const indexer = (fileMapping, currentPath) => {
+const indexer = (fileMapping, currentPath, deepLevel) => {
   activePath = currentPath
   const result = indexTraverser(fileMapping)
-  return `${result}`
+  const documentRoot = getDocumentRoot(deepLevel)
+  return `
+      <li ${(deepLevel === -1) ? 'class="active"' : ''}><a href="./${documentRoot}index.html">
+        Home
+      </a></li>
+    ${result}`
 }
 
 export default indexer

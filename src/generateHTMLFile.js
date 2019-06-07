@@ -1,15 +1,11 @@
 import smartFs from 'smart-fs'
 import log from './utils/log'
+import getDocumentRoot from './utils/getDocumentRoot'
 
 
 const htmlForm = (data, deepLevel) => {
   const { title, body, indexNode } = data
-  let documentRoot = ''
-  if (deepLevel !== -1) {
-    for (let i = 0; i < deepLevel + 1; i += 1) {
-      documentRoot += '../'
-    }
-  }
+  const documentRoot = getDocumentRoot(deepLevel)
   return `
   <!DOCTYPE html>
   <html>
@@ -22,9 +18,6 @@ const htmlForm = (data, deepLevel) => {
       <div class="container">
         <div class="menu">
           <div class="menu-content">
-            <a href="./${documentRoot}index.html">
-              Home
-            </a>
             ${indexNode}
           </div>
         </div>
