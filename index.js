@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 
 import '@babel/polyfill' // eslint-disable-line
-import getInitialSettings from './src/getInitialSettings'
 import pageMapTraverser from './src/pageMapTraverser'
 import generateHTMLFile from './src/generateHTMLFile'
 import copyImageFolder from './src/copyImageFolder'
 import generateIndex from './src/generateIndex'
 import copyCSSFolder from './src/copyCSSFolder'
+import getSettings, { validate } from './src/settings'
+import watch from './src/optionCommand/watch'
 import readMDFile from './src/readMDFile'
 import parseMD from './src/parseMD'
 import log from './src/utils/log'
 import filer from './src/filer'
 
-const run = async () => {
+const main = async (settings) => {
   log.title('\n<<  MarkMD  >>\n')
-
+  await validate(settings)
   const rootDir = process.cwd()
-  const settings = await getInitialSettings()
   const pageList = await filer(settings.source)
   let mdDocument
   let data
@@ -43,8 +43,20 @@ const run = async () => {
   await generateHTMLFile(data, settings, -1, true)
   await copyCSSFolder(settings.destination)
   await copyImageFolder(settings.image, settings.destination)
-  console.info('\n')
+  console.info()
   log.info(`Finished. See you at ${rootDir}/${settings.destination}/index.html \n`)
+}
+
+const run = async () => {
+  const isWatch = process.argv.includes('--watch') || process.argv.includes('-w')
+  if (!isWatch) {
+    const settings = await getSettings()
+    await main(settings)
+    process.exit()
+  } else {
+    const settings = await getSettings()
+    watch(settings)
+  }
 }
 
 run()
