@@ -13,6 +13,7 @@ Node.JS Structured document with markdown to HTML translator
     - [Folder Structure](#folder-structure)
       - [Example](#example)
       - [Customize configuration](#customize-configuration)
+    - [Watching Changes](#watching-changes)
 
 ## Usage
 
@@ -24,7 +25,7 @@ npm install markmd --save
 
 ### Folder Structure
 
-`README.md` will be your home page. To make category, you have to create `docs/` folder
+`README.md` will be your home page. For sub-category, all markdown file should be stored in `docs` folder. All image file should be stored in `docs-img` folder.
 
 #### Example
 
@@ -72,3 +73,11 @@ Options
 | source | Different document folder name, by default is `docs` |
 | destination | Different exported folder name, by default is `apidoc` |
 | image | Different image folder name, by default is `docs-img` |
+
+### Watching Changes
+
+For real-time compiling, just add `--watch` or `-w` option to the command
+
+```bash
+markmd --watch
+```
