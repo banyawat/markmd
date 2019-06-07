@@ -5,6 +5,15 @@
 
 Node.JS Structured document with markdown to HTML translator
 
+## Table of Contents
+
+- [MarkMD](#markmd)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+    - [Folder Structure](#folder-structure)
+      - [Example](#example)
+      - [Customize configuration](#customize-configuration)
+
 ## Usage
 
 Install markmd tools to your project
@@ -13,27 +22,21 @@ Install markmd tools to your project
 npm install markmd --save
 ```
 
-### Table of Contents
-
-- [MarkMD](#markmd)
-  - [Usage](#usage)
-    - [Table of Contents](#table-of-contents)
-      - [Folder Structure](#folder-structure)
-        - [Example](#example)
-      - [Settings](#settings)
-
-#### Folder Structure
+### Folder Structure
 
 `README.md` will be your home page. To make category, you have to create `docs/` folder
 
-##### Example
+#### Example
 
 ```text
 ├─ README.md
-└─ /docs
-    ├─ Alpha.md
-    ├─ Bravo.md
-    └─ Charlie.md
+├─ /docs
+|   ├─ Alpha.md
+|   ├─ Bravo.md
+|   └─ Charlie.md
+└─/docs-img
+    └─ foo.jpg
+    └─ bar.jpg
 
 ```
 
@@ -44,10 +47,13 @@ This will be compiled to HTML structure like this
 └─ /docs
     ├─ Alpha
     ├─ Bravo
-    └─ Charlie
+    ├─ Charlie
+    └─/docs-img
+        ├─ foo.jpg
+        └─ bar.jpg
 ```
 
-#### Settings
+#### Customize configuration
 
 Make configuration by create `markmd.json`
 
