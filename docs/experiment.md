@@ -11,5 +11,3 @@ hello asdas.md
 | code | รหัสประเทศ |
 
 [Go to paper 2](./experiment2.md)
-
-[Go to paper 2](./experiment4.md)
