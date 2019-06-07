@@ -18,11 +18,8 @@ const htmlForm = (data, deepLevel) => {
       <link rel="stylesheet" type="text/css" href="./${documentRoot}styles/index.css">
     </head>
     <body>
-      <div class="grid-container">
+      <div class="container">
         <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
           <div class="menu-content">
             <a href="./${documentRoot}index.html">
               Home
@@ -33,7 +30,8 @@ const htmlForm = (data, deepLevel) => {
         <div class="page">
           ${body}
         </div>
-        <div class="footer">
+      </div>
+      <div class="footer">
           <span>Powered By teusday and byteties, Hosted on 
             <a 
               target="_blank" 
@@ -43,7 +41,6 @@ const htmlForm = (data, deepLevel) => {
               </a>
           </span>
         </div>
-      </div>
     </body>
   </html>`
 }
