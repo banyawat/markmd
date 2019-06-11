@@ -8,6 +8,9 @@ const watchCommand = (settings) => {
     .on('exit', () => {
       log.title(`Waiting for file changes in /${settings.source}...`)
     })
+    .on('quit', () => {
+      process.exit()
+    })
 }
 
 export default watchCommand
