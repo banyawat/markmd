@@ -19,7 +19,7 @@ const htmlForm = (data, deepLevel) => {
           id="mobile-menu"
           class="mobile-menu"
         >
-          Menu
+          menu
         </button>
         <script>
           document.getElementById('mobile-menu').onclick = function() {
@@ -54,7 +54,7 @@ const htmlForm = (data, deepLevel) => {
   </html>`
 }
 
-const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
+const generateHTMLDocument = async (data, settings, deepLevel, isIndex = false) => {
   const { path } = data
   const text = htmlForm(data, deepLevel)
   let dir
@@ -69,4 +69,4 @@ const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
   log.compile(`${path} ==> ${dir}`)
 }
 
-export default generateHTMLFile
+export default generateHTMLDocument
