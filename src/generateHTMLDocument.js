@@ -16,17 +16,19 @@ const htmlForm = (data, deepLevel) => {
     <body>
       <div class="container">
         <button 
-          id="mobile-menu"
-          class="mobile-menu"
+          id="mobile-menu-btn"
+          class="mobile-menu-btn"
         >
           menu
         </button>
         <script>
-          document.getElementById('mobile-menu').onclick = function() {
+          document.getElementById('mobile-menu-btn').onclick = function() {
             var isActive = document.getElementById('menu').className.split(' ').includes('active')
             if(!isActive) {
+              document.getElementById('mobile-menu-btn').className = 'mobile-menu-btn active'
               document.getElementById('menu').className = 'menu active'
             } else {
+              document.getElementById('mobile-menu-btn').className = 'mobile-menu-btn'
               document.getElementById('menu').className  = 'menu'
             }
           }

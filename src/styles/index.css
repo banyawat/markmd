@@ -10,6 +10,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #ff6100;
+}
+
+a:visited {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #9b3b00;
+}
+
 .title { grid-area: header; }
 
 .menu {
@@ -91,7 +102,7 @@ blockquote {
   padding: 1em 40px 1em 40px;
 }
 
-.mobile-menu {
+.mobile-menu-btn {
   display: none;
   position: fixed;
   border: none;
@@ -108,17 +119,21 @@ blockquote {
   box-shadow: 2px 2px 5px rgba(0.7, 0.7, 0.7, 0.2);
 }
 
-@media only screen and (max-width: 768px) {
-  html {
-    overflow: hiden;
-  }
+.mobile-menu-btn:focus {
+  outline: none;
+}
 
+@media only screen and (max-width: 768px) {
   img {
     max-width: 100%;
   }
 
-  .mobile-menu {
+  .mobile-menu-btn {
     display: unset;
+  }
+
+  .mobile-menu-btn.active {
+    background: #525252;
   }
 
   .menu {
@@ -143,7 +158,7 @@ blockquote {
     z-index: -1;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     width: 100%;
     height: 100%;
   }
