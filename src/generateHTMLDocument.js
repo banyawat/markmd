@@ -2,7 +2,6 @@ import smartFs from 'smart-fs'
 import log from './utils/log'
 import getDocumentRoot from './utils/getDocumentRoot'
 
-
 const htmlForm = (data, deepLevel) => {
   const { title, body, indexNode } = data
   const documentRoot = getDocumentRoot(deepLevel)
@@ -16,7 +15,25 @@ const htmlForm = (data, deepLevel) => {
     </head>
     <body>
       <div class="container">
-        <div class="menu">
+        <button 
+          id="mobile-menu-btn"
+          class="mobile-menu-btn"
+        >
+          menu
+        </button>
+        <script>
+          document.getElementById('mobile-menu-btn').onclick = function() {
+            var isActive = document.getElementById('menu').className.split(' ').includes('active')
+            if(!isActive) {
+              document.getElementById('mobile-menu-btn').className = 'mobile-menu-btn active'
+              document.getElementById('menu').className = 'menu active'
+            } else {
+              document.getElementById('mobile-menu-btn').className = 'mobile-menu-btn'
+              document.getElementById('menu').className  = 'menu'
+            }
+          }
+        </script>
+        <div id="menu" class="menu">
           <div class="menu-content">
             ${indexNode}
           </div>
@@ -39,7 +56,7 @@ const htmlForm = (data, deepLevel) => {
   </html>`
 }
 
-const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
+const generateHTMLDocument = async (data, settings, deepLevel, isIndex = false) => {
   const { path } = data
   const text = htmlForm(data, deepLevel)
   let dir
@@ -54,4 +71,4 @@ const generateHTMLFile = async (data, settings, deepLevel, isIndex = false) => {
   log.compile(`${path} ==> ${dir}`)
 }
 
-export default generateHTMLFile
+export default generateHTMLDocument
