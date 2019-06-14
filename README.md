@@ -5,11 +5,16 @@
 
 Node.JS Structured document with markdown to HTML translator
 
+- Mobile Device Responsive
+- Folder-Oriented
+- Real-time compiler
+
 ## Table of Contents
 
 - [MarkMD](#markmd)
   - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
+  - [Start](#start)
     - [Folder Structure](#folder-structure)
       - [Example](#example)
       - [Customize configuration](#customize-configuration)
@@ -21,6 +26,14 @@ Install markmd tools to your project
 
 ```bash
 npm install markmd --save
+```
+
+## Start
+
+To make API document, just call `markmd` (put it in your package scripts)
+
+```bash
+npm run markmd
 ```
 
 ### Folder Structure
