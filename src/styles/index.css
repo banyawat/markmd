@@ -1,8 +1,3 @@
-.container {
-  display: flex;
-  min-height: 95vh;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -19,6 +14,39 @@ a:visited {
   text-decoration: none;
   font-weight: bolder;
   color: #9b3b00;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+pre {
+  word-break: break-all;
+  padding: 15px;
+  border-radius: 5px;
+  background: #303030;
+  color: white;
+  overflow-x: scroll;
+}
+
+pre::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+blockquote {
+  word-break: break-all;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 1em 40px 1em 40px;
+}
+
+.container {
+  display: flex;
+  min-height: 95vh;
 }
 
 .title { grid-area: header; }
@@ -77,29 +105,6 @@ a:visited {
 
 .footer a {
   color: #c4ed6d;
-}
-
-th, td {
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-}
-
-tr:nth-child(even) {background-color: #f2f2f2;}
-
-pre {
-  word-break: break-all;
-  padding: 15px;
-  border-radius: 5px;
-  background: #303030;
-  color: white;
-  overflow: scroll;
-}
-
-blockquote {
-  word-break: break-all;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 1em 40px 1em 40px;
 }
 
 .mobile-menu-btn {
