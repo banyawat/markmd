@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 import '@babel/polyfill' // eslint-disable-line
-import generateHTMLDocument from './src/generateHTMLDocument'
-import generateIndexHTML from './src/generateIndexHTML'
-import generateVersionIndexHTML from './src/generateVersionIndexHTML'
+import generateDocument, { Indexer } from './src/html'
 import getSettings, { validate } from './src/settings'
 import pageMapTraverser from './src/pageMapTraverser'
 import copyImageFolder from './src/copyImageFolder'
@@ -29,10 +27,10 @@ const main = async (settings) => {
       path,
       title,
       body: parseMD(mdDocument),
-      indexNode: generateVersionIndexHTML(pageList, path, deepLevel),
+      indexNode: Indexer.version(pageList, path, deepLevel),
     }
     // await generateVersionIndexHTML(pageList, path, deepLevel)
-    await generateHTMLDocument(data, settings, deepLevel)
+    await generateDocument(data, settings, deepLevel)
   })
   const path = `/${settings.source}/README.md`
   mdDocument = await readMDFile(`${rootDir}/README.md`)
@@ -40,9 +38,9 @@ const main = async (settings) => {
     path,
     title: process.env.npm_package_name,
     body: parseMD(mdDocument),
-    indexNode: generateVersionIndexHTML(pageList, '/', -1),
+    indexNode: Indexer.version(pageList, '/', -1),
   }
-  await generateHTMLDocument(data, settings, -1, true)
+  await generateDocument(data, settings, -1, true)
   await copyCSSFolder(settings.destination)
   await copyImageFolder(settings.image, settings.destination)
   console.info()

@@ -1,4 +1,4 @@
-import getDocumentRoot from './utils/getDocumentRoot'
+import getDocumentRoot from '../../utils/getDocumentRoot'
 
 let activePath
 
