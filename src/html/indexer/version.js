@@ -1,49 +1,10 @@
 import getDocumentRoot from '../../utils/getDocumentRoot'
-
-let activePath
-
-const replacePathAsHTML = (path) => {
-  const newPath = path.split('/')
-  const splittedCurrentPath = activePath.split('/')
-  newPath.shift()
-  splittedCurrentPath.shift()
-  if (splittedCurrentPath.join('') === newPath.join('')) {
-    return '#'
-  }
-  let newFileName = newPath.pop().split('.')
-  newFileName[newFileName.length - 1] = 'html'
-  newFileName = newFileName.join('.')
-  let exportedPath = './'
-  for (let i = 0; i < splittedCurrentPath.length - 1; i += 1) {
-    exportedPath += '../'
-  }
-  return `${exportedPath}${newPath.join('/')}/${newFileName}`
-}
-
-const indexTraverser = node => Object.keys(node)
-  .sort(a => (typeof node[a] === 'object'))
-  .map((key) => {
-    if (key === '_') {
-      return node._
-        .sort((a, b) => a.path.length > b.path.length)
-        .map((item) => {
-          const path = replacePathAsHTML(item.path)
-          return `<li ${(path === '#') ? 'class="active"' : ''}><a href="${path}">${item.title}</a></li>`
-        })
-        .join('')
-    }
-    return `<li>${key}<ul>${indexTraverser(node[key])}</ul></li>`
-  }).map(item => `
-  <ul>
-    ${item}
-  </ul>`)
-  .join('')
+import traverser from './util/traverser'
 
 const generateVersionIndexHTML = (fileMapping, currentPath, deepLevel) => {
-  activePath = currentPath
   let currentVersionFolder
   if (deepLevel !== -1) {
-    const splitted = activePath.split('/')
+    const splitted = currentPath.split('/')
     currentVersionFolder = splitted[splitted.length - deepLevel - 1]
   }
 
@@ -51,7 +12,7 @@ const generateVersionIndexHTML = (fileMapping, currentPath, deepLevel) => {
   Object.keys(fileMapping)
     .sort((a, b) => a > b)
     .forEach((folderName) => {
-      const result = indexTraverser(fileMapping[folderName])
+      const result = traverser(fileMapping[folderName], currentPath)
       versions.push({
         version: folderName,
         index: result,
