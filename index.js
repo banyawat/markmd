@@ -27,7 +27,9 @@ const main = async (settings) => {
       path,
       title,
       body: parseMD(mdDocument),
-      indexNode: Indexer.version(pageList, path, deepLevel),
+      indexNode: (settings.version)
+        ? Indexer.version(pageList, path, deepLevel)
+        : Indexer.normal(pageList, path, deepLevel),
     }
     // await generateVersionIndexHTML(pageList, path, deepLevel)
     await generateDocument(data, settings, deepLevel)
@@ -38,7 +40,9 @@ const main = async (settings) => {
     path,
     title: process.env.npm_package_name,
     body: parseMD(mdDocument),
-    indexNode: Indexer.version(pageList, '/', -1),
+    indexNode: (settings.version)
+      ? Indexer.version(pageList, '/', -1)
+      : Indexer.normal(pageList, '/', -1),
   }
   await generateDocument(data, settings, -1, true)
   await copyCSSFolder(settings.destination)
