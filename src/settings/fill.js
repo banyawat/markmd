@@ -13,6 +13,10 @@ const fill = async (settings) => {
     finalSettings.image = NAME.DEFAULT_IMAGE_PATH
   }
 
+  if (!settings.version) {
+    finalSettings.version = false
+  }
+
   return finalSettings
 }
 

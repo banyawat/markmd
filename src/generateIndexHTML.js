@@ -40,7 +40,7 @@ const indexTraverser = node => Object.keys(node)
   .join('')
 
 
-const indexer = (fileMapping, currentPath, deepLevel) => {
+const generateIndexHTML = (fileMapping, currentPath, deepLevel) => {
   activePath = currentPath
   const result = indexTraverser(fileMapping)
   const documentRoot = getDocumentRoot(deepLevel)
@@ -51,4 +51,4 @@ const indexer = (fileMapping, currentPath, deepLevel) => {
     ${result}`
 }
 
-export default indexer
+export default generateIndexHTML
