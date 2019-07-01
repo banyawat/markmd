@@ -1,6 +1,6 @@
 import smartFs from 'smart-fs'
-import log from './utils/log'
-import getDocumentRoot from './utils/getDocumentRoot'
+import log from '../utils/log'
+import getDocumentRoot from '../utils/getDocumentRoot'
 
 const htmlForm = (data, deepLevel) => {
   const { title, body, indexNode } = data
