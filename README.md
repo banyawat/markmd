@@ -11,14 +11,14 @@ Node.JS Structured document with markdown to HTML translator
 
 ## Table of Contents
 
-- [MarkMD](#markmd)
-  - [Table of Contents](#table-of-contents)
-  - [Usage](#usage)
-  - [Start](#start)
-    - [Folder Structure](#folder-structure)
-      - [Example](#example)
-      - [Customize configuration](#customize-configuration)
-    - [Watching Changes](#watching-changes)
+- [MarkMD](#MarkMD)
+  - [Table of Contents](#Table-of-Contents)
+  - [Usage](#Usage)
+  - [Start](#Start)
+    - [Folder Structure](#Folder-Structure)
+      - [Example](#Example)
+      - [Customize configuration](#Customize-configuration)
+    - [Watching Changes](#Watching-Changes)
 
 ## Usage
 
@@ -54,14 +54,14 @@ npm run markmd
 
 ```
 
-This will be compiled to HTML structure like this
+This will be compiled to static HTML structure like this
 
 ```text
-├─ index
+├─ index.html
 └─ /docs
-    ├─ Alpha
-    ├─ Bravo
-    ├─ Charlie
+    ├─ Alpha.html
+    ├─ Bravo.thml
+    ├─ Charlie.html
     └─/docs-img
         ├─ foo.jpg
         └─ bar.jpg
@@ -73,7 +73,7 @@ Make configuration by create `markmd.json`
 
 ```json
 {
-  "target": "custom-docs",
+  "source": "custom-docs",
   "destination": "exported-docs",
   "image": "custom-img"
 }
