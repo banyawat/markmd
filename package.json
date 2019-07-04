@@ -1,6 +1,6 @@
 {
   "name": "markmd",
-  "version": "0.3.0-rc1",
+  "version": "0.3.0-rc2",
   "description": "Node.js CLI that compile markdown to beautiful HTML API document",
   "main": "build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
