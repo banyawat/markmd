@@ -4,6 +4,7 @@ const converter = new Showdown.Converter({
   optionKey: 'value',
   tables: true,
   emoji: true,
+  openLinksInNewWindow: true,
 })
 
 const parseMD = (document) => {
