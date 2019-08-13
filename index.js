@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import '@babel/polyfill' // eslint-disable-line
+import createAPIDocConfig from './src/createAPIDocConfig'
 import generateDocument, { Indexer } from './src/html'
 import getSettings, { validate } from './src/settings'
 import pageMapTraverser from './src/pageMapTraverser'
@@ -47,6 +48,7 @@ const main = async (settings) => {
   await generateDocument(data, settings, -1, true)
   await copyCSSFolder(settings.destination)
   await copyImageFolder(settings.image, settings.destination)
+  await createAPIDocConfig(settings)
   console.info()
   log.info(`Finished. See you at ${rootDir}/${settings.destination}/index.html\n`)
 }

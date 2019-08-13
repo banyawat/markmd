@@ -11,14 +11,14 @@ Node.JS Structured document with markdown to HTML translator
 
 ## Table of Contents
 
-- [MarkMD](#MarkMD)
-  - [Table of Contents](#Table-of-Contents)
-  - [Usage](#Usage)
-    - [Start](#Start)
-    - [Folder Structure](#Folder-Structure)
-      - [Customize configuration](#Customize-configuration)
-    - [Versioning](#Versioning)
-    - [Watching Changes](#Watching-Changes)
+- [MarkMD](#markmd)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+    - [Start](#start)
+    - [Folder Structure](#folder-structure)
+      - [Customize configuration](#customize-configuration)
+    - [Versioning](#versioning)
+    - [Watching Changes](#watching-changes)
 
 ## Usage
 
@@ -84,10 +84,11 @@ Options
 
 | option | description | default |
 |--------|-------------|---------|
-| source | Different document folder name | docs |
-| destination | Different exported folder name, by default | apidoc |
-| image | Different image folder name |docs-img |
+| source | Different document folder name | "docs" |
+| destination | Different exported folder name, by default | "apidoc/des" |
+| image | Different image folder name | "docs-img" |
 | version | Use version structuring | false |
+| fakeApidocConfig | Generate fake apidoc.json | false |
 
 ### Versioning
 
