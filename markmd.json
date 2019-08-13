@@ -1,3 +1,4 @@
 {
-  "version": true
+  "version": true,
+  "fakeApidocSetting": true
 }

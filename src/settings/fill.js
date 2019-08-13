@@ -17,6 +17,12 @@ const fill = async (settings) => {
     finalSettings.version = false
   }
 
+  if (!settings.fakeApidocConfig) {
+    finalSettings.fakeApidocConfig = false
+  } else {
+    finalSettings.destination = NAME.DEFAULT_EXPORT_PATH
+  }
+
   return finalSettings
 }
 
