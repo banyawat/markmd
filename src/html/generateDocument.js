@@ -1,4 +1,4 @@
-import smartFs from 'smart-fs'
+import fs from 'fs-extra'
 import log from '../utils/log'
 import getDocumentRoot from '../utils/getDocumentRoot'
 
@@ -68,7 +68,8 @@ const generateHTMLDocument = async (data, settings, deepLevel, isIndex = false) 
     dir = path.replace('.md', '.html')
     dir = dir.replace(settings.source, `${settings.destination}/${settings.source}`)
   }
-  await smartFs.smartWrite(`.${dir}`, [text])
+  await fs.ensureFileSync(`.${dir}`)
+  await fs.writeFileSync(`.${dir}`, text)
   log.compile(`${path} ==> ${dir}`)
 }
 
