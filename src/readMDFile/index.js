@@ -1,10 +1,9 @@
-import smartFs from 'smart-fs'
+import fs from 'fs-extra'
 import convertLinkMDToHTML from './convertLinkMDToHTML'
 
 const readMDFile = async (path) => {
-  const parsedPage = await smartFs.smartRead(path)
-  const document = parsedPage.join('\n')
-  const replacedLinkDocument = convertLinkMDToHTML(document)
+  const document = await fs.readFileSync(path)
+  const replacedLinkDocument = convertLinkMDToHTML(document.toString())
   return replacedLinkDocument
 }
 
