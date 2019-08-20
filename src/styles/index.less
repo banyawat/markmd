@@ -4,6 +4,7 @@
 @ocean: #45ADA8;
 @light-green: #9DE0AD;
 @light-lime: #E5FCC2;
+@light: #F9F4F4;
 
 
 body {
@@ -48,7 +49,8 @@ pre {
 
 blockquote {
   word-break: break-all;
-  background: @white;
+  background: @light;
+  border-radius: 5px;
   margin: 0;
   padding: 1em 40px 1em 40px;
 }
@@ -58,6 +60,24 @@ blockquote {
   display: flex;
   flex-direction: row;
   min-height: 95.5vh;
+}
+
+.page {
+  flex: 5;
+  overflow-x: scroll;
+  padding: 25px 35px;
+}
+
+.footer {
+  justify-content: center;
+  background: @dark-cyan;
+  color: @white;
+  padding: 15px;
+  display: flex;
+
+  a {
+    color: @light-lime;
+  }
 }
 
 .title { grid-area: header; }
@@ -103,23 +123,6 @@ blockquote {
   ul {
     margin: 5px 0;
     padding-left: 15px;
-  }
-}
-
-.page {
-  flex: 5;
-  padding: 25px 35px;
-}
-
-.footer {
-  justify-content: center;
-  background: @dark-cyan;
-  color: @white;
-  padding: 15px;
-  display: flex;
-
-  a {
-    color: @light-lime;
   }
 }
 

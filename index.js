@@ -32,7 +32,6 @@ const main = async (settings) => {
         ? Indexer.version(pageList, path, deepLevel)
         : Indexer.normal(pageList, path, deepLevel),
     }
-    // await generateVersionIndexHTML(pageList, path, deepLevel)
     await generateDocument(data, settings, deepLevel)
   })
   const path = `/${settings.source}/README.md`
