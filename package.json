@@ -16,8 +16,8 @@
     "start": "node build/index.js",
     "test": "NODE_ENV=test jest",
     "bulid-js": "babel index.js -d build; babel src -d build/src;",
-    "build-less": "lessc src/assets/index.less build/src/assets/index.css --clean-css=\"--s1 --advanced --compatibility=ie8\"",
-    "build": "npm run bulid-js && npm run build-less",
+    "build-css": "babel-node ./scripts/buildCSS.js",
+    "build": "npm run bulid-js && npm run build-css",
     "runbin": "markmd -w",
     "prepublish": "npm run build"
   },
