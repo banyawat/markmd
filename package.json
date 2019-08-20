@@ -16,8 +16,8 @@
     "start": "node build/index.js",
     "test": "NODE_ENV=test jest",
     "bulid-js": "babel index.js -d build; babel src -d build/src;",
-    "build-css": "node-minify --compressor clean-css --input 'src/styles/index.css' --output 'build/src/styles/index.css'",
-    "build": "npm run bulid-js && npm run build-css",
+    "build-less": "lessc 'src/styles/index.less' 'build/src/styles/index.css' --clean-css=\"--s1 --advanced --compatibility=ie8\"",
+    "build": "npm run bulid-js && npm run build-less",
     "runbin": "markmd -w",
     "prepublish": "npm run build"
   },
@@ -34,8 +34,8 @@
     "showdown": "1.9.0"
   },
   "devDependencies": {
-    "@node-minify/clean-css": "4.0.5",
-    "@node-minify/cli": "4.1.0",
+    "less": "3.10.1",
+    "less-plugin-clean-css": "1.5.1",
     "babel-preset-minify": "0.5.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
