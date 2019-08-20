@@ -1,8 +1,14 @@
-/apidoc
-/docs
-/docs-img
 yarn.lock
+yarn-error.log
 package-lock.json
 .eslintrc.json
 npm-debug.log
 .git
+
+# Ignore development files
+/src
+markmd.json
+/apidoc
+/docs
+/docs-img
+

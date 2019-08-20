@@ -110,3 +110,22 @@
   ]
 }
 ```
+
+```json
+{
+    "errors": [
+        {
+            "value": 200,
+            "msg": "Should be String",
+            "param": "lastName",
+            "location": "body"
+        },
+        {
+            "value": 200,
+            "msg": "EducationLevel ID is out of available range. More information at http://developers.thinknet.co.th/jobthai-upgrade/docs/resume-service/docs/v1/API/Update%20Resume%20API.html#education-level",
+            "param": "educationLevelID",
+            "location": "body"
+        }
+    ]
+}
+```

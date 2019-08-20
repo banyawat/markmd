@@ -6,7 +6,7 @@ import generateDocument, { Indexer } from './src/html'
 import getSettings, { validate } from './src/settings'
 import pageMapTraverser from './src/pageMapTraverser'
 import copyImageFolder from './src/copyImageFolder'
-import copyCSSFolder from './src/copyCSSFolder'
+import copyStyleSheet from './src/copyStyleSheet'
 import watch from './src/optionCommand/watch'
 import readMDFile from './src/readMDFile'
 import parseMD from './src/parseMD'
@@ -32,7 +32,6 @@ const main = async (settings) => {
         ? Indexer.version(pageList, path, deepLevel)
         : Indexer.normal(pageList, path, deepLevel),
     }
-    // await generateVersionIndexHTML(pageList, path, deepLevel)
     await generateDocument(data, settings, deepLevel)
   })
   const path = `/${settings.source}/README.md`
@@ -46,7 +45,7 @@ const main = async (settings) => {
       : Indexer.normal(pageList, '/', -1),
   }
   await generateDocument(data, settings, -1, true)
-  await copyCSSFolder(settings.destination)
+  await copyStyleSheet(settings.destination)
   await copyImageFolder(settings.image, settings.destination)
   await createAPIDocConfig(settings)
   console.info()
