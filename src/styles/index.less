@@ -1,3 +1,11 @@
+@black: #594F4F;
+@white: #FFFFFF;
+@dark-cyan: #547980;
+@ocean: #45ADA8;
+@light-green: #9DE0AD;
+@light-lime: #E5FCC2;
+
+
 body {
   margin: 0;
   padding: 0;
@@ -7,12 +15,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #ff6100;
+  color: @dark-cyan;
 
   &:visited {
     text-decoration: none;
     font-weight: bolder;
-    color: #9b3b00;
+    color: @black;
   }
 }
 
@@ -28,8 +36,8 @@ pre {
   word-break: break-all;
   padding: 15px;
   border-radius: 5px;
-  background: #594F4F;
-  color: white;
+  background: @black;
+  color: @white;
   overflow-x: scroll;
 
   &::-webkit-scrollbar {
@@ -40,7 +48,7 @@ pre {
 
 blockquote {
   word-break: break-all;
-  background: #f5f5f5;
+  background: @white;
   margin: 0;
   padding: 1em 40px 1em 40px;
 }
@@ -55,8 +63,8 @@ blockquote {
 .title { grid-area: header; }
 
 .menu {
-  background: #594F4F;
-  color: #E5FCC2;
+  background: @black;
+  color: @light-lime;
   flex: 1;
   width: 300px;
   padding: 15px;
@@ -66,11 +74,11 @@ blockquote {
 
   a {
     width: 100%;
-    color: #9DE0AD;
+    color: @light-green;
     text-decoration: none;
 
     &:hover {
-      color: #E5FCC2;
+      color: @light-lime;
     }
   }
 
@@ -84,10 +92,10 @@ blockquote {
 
     &.active {
       border-radius: 5px;
-      background: #547980;
+      background: @dark-cyan;
   
       a {
-        color: white;
+        color: @white;
       }
     }
   }
@@ -105,13 +113,13 @@ blockquote {
 
 .footer {
   justify-content: center;
-  background: #547980;
-  color: white;
+  background: @dark-cyan;
+  color: @white;
   padding: 15px;
   display: flex;
 
   a {
-    color: #E5FCC2;
+    color: @light-lime;
   }
 }
 
@@ -133,8 +141,8 @@ blockquote {
   right: 0;
   width: 60px;
   height: 40px;
-  color: white;
-  background: #594F4F;
+  color: @white;
+  background: @black;
   transform-origin: botton right;
   z-index: 2;
   transform: rotate(-90deg);
@@ -152,7 +160,7 @@ blockquote {
 .version-selector {
   margin-top: 10px;
   border: none;
-  color: #594F4F;
+  color: @black;
 }
 
 @media only screen and (max-width: 768px) {
@@ -165,34 +173,34 @@ blockquote {
   }
 
   .mobile-menu-btn.active {
-    background: #547980;
+    background: @dark-cyan;
   }
 
   .menu {
     display: none;
     flex: 0;
-  }
 
-  .menu.active {
-    display: unset;
-    position: fixed;
-    height: 400px;
-    width: 300px;
-    top: 100px;
-    left: 50%;
-    border-radius: 10px;
-    margin-left: -165px; /* Negative half of width. */
-  }
+    &.active {
+      display: unset;
+      position: fixed;
+      height: 400px;
+      width: 300px;
+      top: 100px;
+      left: 50%;
+      border-radius: 10px;
+      margin-left: -165px; /* Negative half of width. */
 
-  .menu.active::after {
-    content: "";
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    background: rgba(0,0,0,0.7);
-    width: 100%;
-    height: 100%;
+      &::after {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.7);
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 
   .page {
