@@ -1,7 +1,11 @@
-import fs from 'fs-extra'
-import less from 'less'
 import LessPluginCleanCSS from 'less-plugin-clean-css'
-import { PATH, ERROR_MESSAGE } from './constant'
+import fs from 'fs-extra'
+import path from 'path'
+import less from 'less'
+import {
+  PATH,
+  ERROR_MESSAGE,
+} from './constant'
 import log from './utils/log'
 
 const cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true })
@@ -9,14 +13,23 @@ const cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true })
 const copyStyleSheet = async (destinationFolder) => {
   const rootDir = process.cwd()
   const dir = __dirname
-  const lessSheet = await fs.readFileSync(`${dir}/${PATH.STYLES}/index.less`)
-  const compiledLessSheet = await less.render(lessSheet.toString(), { plugins: [cleanCSSPlugin] })
+  const sourcePath = `${dir}/${PATH.STYLES}`
+  const destinationPath = `${rootDir}/${destinationFolder}/${PATH.STYLES}`
   try {
-    await fs.ensureDirSync(`${rootDir}/${destinationFolder}/${PATH.STYLES}`)
-    await fs.writeFileSync(`${rootDir}/${destinationFolder}/${PATH.STYLES}/index.css`, compiledLessSheet.css)
+    const compiledLessSheet = await less.render(
+      fs.readFileSync(`${sourcePath}/index.less`).toString(),
+      {
+        plugins: [cleanCSSPlugin],
+        relativeUrls: true,
+        filename: path.resolve(`${sourcePath}/index.less`),
+      },
+    )
+    await fs.ensureDirSync(`${destinationPath}`)
+    await fs.copyFileSync(`${sourcePath}/prism.js`, `${destinationPath}/prism.js`)
+    await fs.writeFileSync(`${destinationPath}/index.css`, compiledLessSheet.css)
     log.compile('Generating Themes...')
   } catch (error) {
-    log.error(ERROR_MESSAGE.CSS_COPY_ERROR)
+    log.error(ERROR_MESSAGE.CSS_COPY_ERROR, error)
   }
 }
 

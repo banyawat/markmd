@@ -1,1 +1,1 @@
-export const STYLES = 'styles'
+export const STYLES = 'assets'

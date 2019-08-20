@@ -1,3 +1,5 @@
+@import './prism.less';
+
 @black: #594F4F;
 @white: #FFFFFF;
 @dark-cyan: #547980;
@@ -30,10 +32,11 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {
+  background-color: @light;
+}
 
 pre {
-  max-width: 100%;
   word-break: break-all;
   padding: 15px;
   border-radius: 5px;
@@ -51,6 +54,7 @@ blockquote {
   word-break: break-all;
   background: @light;
   border-radius: 5px;
+  border-left: @ocean 8px solid;
   margin: 0;
   padding: 1em 40px 1em 40px;
 }
@@ -210,3 +214,5 @@ blockquote {
     width: 0;
   }
 }
+
+ 
