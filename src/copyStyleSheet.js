@@ -6,7 +6,7 @@ import log from './utils/log'
 
 const cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true })
 
-const copyCSSFolder = async (destinationFolder) => {
+const copyStyleSheet = async (destinationFolder) => {
   const rootDir = process.cwd()
   const dir = __dirname
   const lessSheet = await fs.readFileSync(`${dir}/${PATH.STYLES}/index.less`)
@@ -20,4 +20,4 @@ const copyCSSFolder = async (destinationFolder) => {
   }
 }
 
-export default copyCSSFolder
+export default copyStyleSheet
