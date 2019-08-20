@@ -12,7 +12,7 @@ const indexTraverser = (node, activePath) => Object.keys(node)
         })
         .join('')
     }
-    return `<li>${key}<ul>${indexTraverser(node[key], activePath)}</ul></li>`
+    return `<li>${key}${indexTraverser(node[key], activePath)}</li>`
   }).map(item => `
   <ul>
     ${item}

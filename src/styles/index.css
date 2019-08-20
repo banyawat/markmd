@@ -27,7 +27,7 @@ pre {
   word-break: break-all;
   padding: 15px;
   border-radius: 5px;
-  background: #303030;
+  background: #594F4F;
   color: white;
   overflow-x: scroll;
 }
@@ -52,8 +52,8 @@ blockquote {
 .title { grid-area: header; }
 
 .menu {
-  background: #303030;
-  color: white;
+  background: #594F4F;
+  color: #E5FCC2;
   flex: 1;
   padding: 15px;
   -webkit-box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
@@ -63,30 +63,34 @@ blockquote {
 
 .menu a {
   width: 100%;
-  color: #c4ed6d;
+  color: #9DE0AD;
   text-decoration: none;
 }
 
 .menu a:hover {
-  color: #dde4cf;
+  color: #E5FCC2;
 }
 
 .menu ul, li {
   list-style-type: none;
-  margin-bottom: 10px;
 }
 
 .menu li.active {
-  padding: 5px;
   border-radius: 5px;
-  background: gray;
+  background: #547980;
+}
+
+.menu li.active a {
+  color: white;
 }
 
 .menu ul {
+  margin: 5px 0;
   padding-left: 15px;
 }
 
 .menu li {
+  padding: 5px;
   padding-right: 10px;
 }
 
@@ -97,14 +101,14 @@ blockquote {
 
 .footer {
   justify-content: center;
-  background: #777;
+  background: #547980;
   color: white;
   padding: 15px;
   display: flex;
 }
 
 .footer a {
-  color: #c4ed6d;
+  color: #E5FCC2;
 }
 
 .version-selector {
@@ -126,7 +130,7 @@ blockquote {
   width: 60px;
   height: 40px;
   color: white;
-  background: #303030;
+  background: #594F4F;
   transform-origin: botton right;
   z-index: 2;
   transform: rotate(-90deg);
@@ -151,7 +155,7 @@ blockquote {
   }
 
   .mobile-menu-btn.active {
-    background: #525252;
+    background: #547980;
   }
 
   .menu {
