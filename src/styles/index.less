@@ -8,12 +8,12 @@ body {
 a {
   text-decoration: none;
   color: #ff6100;
-}
 
-a:visited {
-  text-decoration: none;
-  font-weight: bolder;
-  color: #9b3b00;
+  &:visited {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #9b3b00;
+  }
 }
 
 th, td {
@@ -31,11 +31,11 @@ pre {
   background: #594F4F;
   color: white;
   overflow-x: scroll;
-}
 
-pre::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 0px;
     background: transparent;
+  }
 }
 
 blockquote {
@@ -63,39 +63,39 @@ blockquote {
   -webkit-box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
   -moz-box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
   box-shadow: inset -15px 0px 15px 1px rgba(0,0,0,0.31);
-}
 
-.menu a {
-  width: 100%;
-  color: #9DE0AD;
-  text-decoration: none;
-}
+  a {
+    width: 100%;
+    color: #9DE0AD;
+    text-decoration: none;
 
-.menu a:hover {
-  color: #E5FCC2;
-}
+    &:hover {
+      color: #E5FCC2;
+    }
+  }
 
-.menu ul, li {
-  list-style-type: none;
-}
+  ul, li {
+    list-style-type: none;
+  }
 
-.menu li.active {
-  border-radius: 5px;
-  background: #547980;
-}
+  li {
+    padding: 5px;
+    padding-right: 10px;
 
-.menu li.active a {
-  color: white;
-}
+    &.active {
+      border-radius: 5px;
+      background: #547980;
+  
+      a {
+        color: white;
+      }
+    }
+  }
 
-.menu ul {
-  margin: 5px 0;
-  padding-left: 15px;
-}
-
-.menu li {
-  padding: 5px;
-  padding-right: 10px;
+  ul {
+    margin: 5px 0;
+    padding-left: 15px;
+  }
 }
 
 .page {
@@ -109,19 +109,19 @@ blockquote {
   color: white;
   padding: 15px;
   display: flex;
-}
 
-.footer a {
-  color: #E5FCC2;
+  a {
+    color: #E5FCC2;
+  }
 }
 
 .version-selector {
   width: 100%;
   height: 30px;
-}
 
-.version-selector:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .mobile-menu-btn {
