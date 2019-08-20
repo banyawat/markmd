@@ -12,7 +12,7 @@
   },
   "scripts": {
     "convert": "babel-node index.js",
-    "dev": "nodemon --watch index.js --watch src --exec \"babel-node index\" -e js,css",
+    "dev": "nodemon --watch index.js --watch src --exec \"babel-node index\" -e js,less",
     "start": "node build/index.js",
     "test": "NODE_ENV=test jest",
     "bulid-js": "babel index.js -d build; babel src -d build/src;",
@@ -28,14 +28,14 @@
     "@babel/preset-env": "7.4.4",
     "chalk": "2.4.2",
     "fs-extra": "8.0.1",
-    "klaw-sync": "^6.0.0",
+    "klaw-sync": "6.0.0",
     "merge-deep": "3.0.2",
     "nodemon": "1.19.0",
-    "showdown": "1.9.0"
+    "showdown": "1.9.0",
+    "less": "3.10.1",
+    "less-plugin-clean-css": "1.5.1"
   },
   "devDependencies": {
-    "less": "3.10.1",
-    "less-plugin-clean-css": "1.5.1",
     "babel-preset-minify": "0.5.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
