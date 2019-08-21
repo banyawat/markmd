@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 import '@babel/polyfill' // eslint-disable-line
-import createAPIDocConfig from './src/createAPIDocConfig'
-import generateDocument, { Indexer } from './src/html'
-import getSettings, { validate } from './src/settings'
-import pageMapTraverser from './src/pageMapTraverser'
-import copyImageFolder from './src/copyImageFolder'
-import copyStyleSheet from './src/copyStyleSheet'
-import watch from './src/optionCommand/watch'
-import readMDFile from './src/readMDFile'
-import parseMD from './src/parseMD'
-import log from './src/utils/log'
-import filer from './src/filer'
+import createAPIDocConfig from './createAPIDocConfig'
+import generateDocument, { Indexer } from './html'
+import getSettings, { validate } from './settings'
+import pageMapTraverser from './pageMapTraverser'
+import copyImageFolder from './copyImageFolder'
+import copyStyleSheet from './copyStyleSheet'
+import watch from './optionCommand/watch'
+import readMDFile from './readMDFile'
+import parseMD from './parseMD'
+import log from './utils/log'
+import filer from './filer'
 
 const main = async (settings) => {
   log.title('\n<<  MarkMD  >>\n')
