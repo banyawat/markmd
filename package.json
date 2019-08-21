@@ -15,7 +15,6 @@
     "start": "node build/index.js",
     "test": "NODE_ENV=test jest",
     "convert": "babel-node src/index.js",
-    "helps": "babel --help",
     "build-js": "mkdir -p build/src/assets/; babel src -d build --minified; cp src/assets/prism.js build/assets/prism.js",
     "build-css": "lessc 'src/assets/index.less' 'build/assets/index.less' --clean-css=\"--s1 --advanced --compatibility=ie8\" --rootpath='src/assets/index.less'",
     "build": "npm run build-js && npm run build-css",
