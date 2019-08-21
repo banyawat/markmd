@@ -6,9 +6,11 @@ npm-debug.log
 .git
 
 # Ignore development files
+./index.js
 /src
+.babelrc
 markmd.json
 /apidoc
 /docs
 /docs-img
-
+/test

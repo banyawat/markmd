@@ -1,6 +1,6 @@
 {
   "name": "markmd",
-  "version": "0.5.0-rc0",
+  "version": "0.5.0-rc1",
   "description": "Node.js CLI that compile markdown to beautiful HTML API document",
   "main": "build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
@@ -22,10 +22,6 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@babel/cli": "7.4.4",
-    "@babel/core": "7.4.4",
-    "@babel/node": "7.2.2",
-    "@babel/preset-env": "7.4.4",
     "chalk": "2.4.2",
     "fs-extra": "8.0.1",
     "klaw-sync": "6.0.0",
@@ -36,6 +32,10 @@
     "less-plugin-clean-css": "1.5.1"
   },
   "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.4",
+    "@babel/node": "7.2.2",
+    "@babel/preset-env": "7.4.4",
     "babel-preset-minify": "0.5.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",

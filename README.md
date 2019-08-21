@@ -9,9 +9,15 @@ Node.JS Structured document with markdown to HTML translator
 - Directory-Oriented
 - Real-time compiler
 
+## What's new in MarkMD
+
+- Improve stylesheet to readable layout
+- Syntax hilighter in code block
+
 ## Table of Contents
 
 - [MarkMD](#markmd)
+  - [What's new in MarkMD](#whats-new-in-markmd)
   - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
     - [Start](#start)
