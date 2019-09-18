@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-
-import '@babel/polyfill' // eslint-disable-line
 import createAPIDocConfig from './createAPIDocConfig'
 import generateDocument, { Indexer } from './html'
 import getSettings, { validate } from './settings'
