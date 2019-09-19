@@ -1,6 +1,6 @@
 {
   "name": "markmd",
-  "version": "0.5.0-rc3",
+  "version": "0.5.0-rc4",
   "description": "Node.js CLI that compile markdown to beautiful HTML API document",
   "main": "build/index.js",
   "repository": "git@github.com:banyawat/markmd.git",
@@ -22,14 +22,15 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "@babel/polyfill": "7.6.0",
     "chalk": "2.4.2",
     "fs-extra": "8.0.1",
     "klaw-sync": "6.0.0",
+    "less": "3.10.1",
+    "less-plugin-clean-css": "1.5.1",
     "merge-deep": "3.0.2",
     "nodemon": "1.19.0",
-    "showdown": "1.9.0",
-    "less": "3.10.1",
-    "less-plugin-clean-css": "1.5.1"
+    "showdown": "1.9.0"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
