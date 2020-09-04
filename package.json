@@ -28,7 +28,7 @@
     "klaw-sync": "6.0.0",
     "merge-deep": "3.0.2",
     "nodemon": "1.19.0",
-    "showdown": "1.9.0",
+    "showdown": "1.9.1",
     "less": "3.10.1",
     "less-plugin-clean-css": "1.5.1"
   },
